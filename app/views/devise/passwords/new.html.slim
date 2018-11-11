@@ -1,0 +1,23 @@
+.container.mt--8.pb-5
+  .row.justify-content-center
+    .col-lg-5.col-md-7
+      .card.bg-secondary.shadow.border-0
+        .card-header.bg-transparent.pb-5
+          .text-muted.text-center.mt-2.mb-3
+            = t('.forgot_your_password')
+          = render 'shared/flash', flash: flash
+        .card-body.px-lg-5.py-lg-5
+          = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+            .form-group.mb-3
+              .input-group.input-group-alternative
+                .input-group-prepend
+                  span.input-group-text
+                    i.ni.ni-email-83
+                = f.email_field :email, autofocus: true, placeholder: 'Email', class: 'form-control'
+            .text-center
+              = f.submit t('.send_me_reset_password_instructions'), class: 'btn btn-primary my-4'
+      .row.mt-3
+        .col-6
+          a.text-light href= new_session_path(resource_name)
+            small
+              = t(".sign_in")

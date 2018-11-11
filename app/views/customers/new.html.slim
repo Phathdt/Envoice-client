@@ -1,0 +1,8 @@
+.row
+  .col
+    .card.shadow
+      .card-header.border-0
+        = t('.title')
+      = render 'shared/flash', flash: flash
+      .card-body.px-lg-5.py-lg-5
+        = render 'form'

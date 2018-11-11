@@ -1,0 +1,51 @@
+.row
+  .col
+    .card.shadow
+      .card-body.px-lg-5.py-lg-5
+        = search_form_for @search, class: 'full-width' do |f|
+          .row
+            .col-md-10.col-sm-12
+              .form-group
+                = f.text_field :name_cont, class: 'form-control', placeholder: "#{t('place_holder.name')}"
+            .col-md-2.col-sm-12
+              button.btn.btn-icon.btn-2.btn-primary type="submit"
+                span.btn-inner--icon
+                  i.fas.fa-search
+
+.row.mt-5
+  .col
+    .card.shadow
+      .card-body.border-0
+        .row
+          .col-sm-10
+            h3.mb-0 = t('.title')
+          .col-sm-2
+            = link_to new_product_path, class: "btn btn-icon btn-3 btn-primary" do
+              span.btn-inner--icon
+                i.fas.fa-plus
+              span.btn-inner--text = t('.add')
+
+      .table-responsive
+        table.table.align-items-center.table-flush
+          thead.thead-light
+            tr
+              th scope="col" = sort_link @search, :name,  t('.name')
+              th scope="col" = sort_link @search, :name,  t('.unit')
+              th scope="col" = sort_link @search, :name,  t('.price')
+              th scope="col" = t('.edit')
+              th scope="col" = t('.delete')
+          tbody
+            - @products.each do |product|
+              tr
+                td
+                  = product.name
+                td
+                  = product.unit
+                td
+                  = product.price
+                td
+                  = link_to t('.edit'), [:edit, product]
+                td
+                  = link_to t('.delete'), product, method: :delete, data: { confirm: 'Are you sure?' }
+
+      = paginate @products

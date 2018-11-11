@@ -1,0 +1,373 @@
+html[lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:hnx="http://www.w3.org/2000/09/xmldsig#" xmlns:exsl="http://exslt.org/common" xmlns:inv="http://laphoadon.gdt.gov.vn/2014/09/invoicexml/v1"]
+  head
+    meta[charset="utf-8"]
+    title
+      | TiKi Evat Invoice
+    meta[http-equiv="X-UA-Compatible" content="IE=Edge"]
+    script[type="text/javascript" src="https://tikicdn.com/media/js/8c758b69.js"]
+      |  <script language="javascript" type="text/javascript">
+    style[type="text/css" media="all"]
+      |  .line { border-top: 1px solid #000; margin: 3px 0 !important; line-height: 3px !important } canvas { display: inline-block } html { font-size: 100% } i { font-size: 12px } input { margin: 0; vertical-align: middle } tr { page-break-inside: avoid } p { orphans: 0; widows: 3 } body { margin: 0; font-family: "Arial", Times New Roman, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 20px; color: #333; background-color: #fff } [class*=span] { float: left; min-height: 1px; margin-left: 20px } p { margin: 0 0 5px } .text-left { text-align: left !important } .text-right { text-align: right !important } .text-center { text-align: center !important } legend { display: block; width: 100%; padding: 0; color: #333; border-width: 0 0 1px; border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color #e5e5e5; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none } input { font-size: 14px; font-weight: 400; line-height: 20px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; width: 206px; margin-left: 0 } p { margin: 5px 0 } .boderRaudi { border: 1px solid #000; width: 98%; margin-left: 6px } .brBlack { border-top: 1px solid #000; margin: 5px 0 } a { text-dicorition: none } @page { margin-top: 40px; margin-left: 40px; margin-right: 40px; margin-bottom: 40px; } .text-center { text-align: center !important; } .text-left { text-align: left !important; } .text-right { text-align: right !important; } #hangHoa { padding-top: 15px; } #hangHoa table tr td, #hangHoa table tr th { border: 1px solid #000000; } .row { width: 100%; margin: 0; padding: 0; clear: both; display: block; } .row .col1, .row .col2, .row .col3, .row .col4, .row .col5, .row .col6, .row .col7, .row .col8, .row .col9, .row .col10, .row .col11, .row .col12, .row .col13, .row .col14, .row .col15, .row .col16, .row .col17, .row .col18, .row .col20 { display: block; float: left; padding: 0; margin: 0; } .row:after { clear: both } .row:after, .row:before { content: ""; display: table; line-height: 0 } .fixPage { display: none; } .container { width: 867px; font-size: 12px; line-height: 22px; font-family: Arial; padding: 0px; border-radius: 0px; margin: 0 auto; position: relative; display: table; color: #000; background-position: 50% 50%; background-repeat: no-repeat; background-position: center 580; } .displayPage { border-bottom: 0px solid #000; border-right: 0px solid #000; border-left: 0px solid #000; display: block; } #footerFix { display: table; } .table { border-spacing: 0; width: 98%; margin: 0px 7px; font-size: 12px; color: #000; } .table { border-style: solid solid solid solid; border-width: 1px 1px 1px 1px } .table th { padding: 2px; text-align: center; } .table th { border-bottom: 1px solid #000; font-weight: 700; border-left: 1px solid #000; } .table th:last-child { border-right: 1px solid #000 } .table tbody tr th:last-child { border-right: 0px solid #000 } .table tbody tr th:first-child { border-left: 0px solid #000 } .table th { line-height: 17px } .table td { padding: 2px; text-align: left; vertical-align: top; border-left: 1px solid #000 } .table td { border-top: 1px solid #DDD } .table tbody tr td:last-child { border-right: 1px solid #000 } .table tbody tr td:first-child { border-left: 1px solid #000 } .table tbody tr:last-child > td { border-top: 1px solid #ddd; } .table-all-border { border-spacing: 0; width: 100% } .table-all-border td { padding: 2px; border-left: 1px solid #000; border-top: 1px solid #000 } .table-all-border tbody tr td:last-child { border-right: 1px solid #000 } .table-all-border tbody tr:last-child > td { border-top: 1px solid #000; } .table td { line-height: 21px } .tdFixBD { border-top: 1px solid #DDD; white-space: normal; } table { max-width: 100%; background-color: transparent; border-collapse: collapse; border-spacing: 0; } .fixTa { color: #000; width: 98%; margin-left: 7px; margin-right: 7px; font-size: 13px; background-color: transparent; border-collapse: collapse; } .fixTable, .sumTable { color: #000; width: 98%; margin-left: 7px; font-size: 12px; background-color: transparent; border-collapse: collapse; border-spacing: 0; border-top: 1px solid #000; border-bottom: 1px solid #000; border-left: 0px solid #000; border-right: 1px solid #000; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; border-collapse: separate; border-radius: 0px } .fixTable td { padding: 2px } .fixTable td { padding: 2px; text-align: left; vertical-align: top; border-left: 1px solid #000 } .fixTable td { border-top: 1px solid #DDD } .fixTable tbody tr td:last-child { border-right: 0px solid #000 } .fixTable tbody tr td:first-child { border-left: 1px solid #000 } .fixTable tbody tr:last-child > td { border-top: 1px solid #ddd; } .abcdef { border: 3px none #000000; font-weight: bold; font-size: 40px; position: absolute; top: 490px; left: 69px; width: 600px; background: none; z-index: -1; } .invName { text-align: center; font-size: 20px; line-height: 25px; font-weight: 700; margin: 0 0 3px; text-transform: uppercase } .textEvat { position: absolute; top: 250px; display: block; right: -12px; font-style: italic; font-size: 11px; width: 13px; } .boderTop { border-top: 1px solid #000 !important; } .boderLe { border-left: 1px solid #000 !important; } .boderRi { border-right: 1px solid #000 !important; } .boderAll { border: 1px solid #000 !important; } .phathanh { position: absolute; opacity: 0.8; filter: alpha(opacity=100); top: 297px; left: 180px; width: 300px; height: auto; z-index: 1; background: none; } .TitleHD { text-transform: uppercase; font-size: 19px; font-weight: 500; } .nom { font-weight: normal !important; } .maginHeader { display: table; width: 100%; margin: 0; padding-top: 0px; clear: both; height: 0px; color: #fff; border-top: 0px solid #000; margin-bottom: 0px } .maginHeaderTop { display: table; width: 100%; margin: 0; padding-top: 0px; clear: both; height: 0px; color: #fff; border-top: 0px solid #000; margin-bottom: 30px } .maginHeaderMin { display: table; width: 100%; margin: 0; padding-top: 10px; clear: both; height: 10px; color: #fff; } .border2 { border-left: 0px solid #000; border-right: 0px solid #000; padding: 0px; margin-right: 0px; display: table; width: 100%; } .wallperBg { position: relative; } .boderNew { border-width: 1px 1px 0 1px; border-style: solid } .wallperTable { border-left: 0px solid #000; border-right: 0px solid #000; } .marginTopDiv { margin-top: 20px; } .span12 { width: 800px } .span9 { width: 800px } .span8 { width: 600px } .span6 { width: 460px } .span4 { width: 300px } .span3_1 { width: 200px } .span3 { width: 200px } .row-fluid { width: 100% } .row-fluid [class*=span] { display: block; float: left; width: 100%; margin-left: 2.12766%; box-sizing: border-box } .row-fluid .span12 { width: 100% } .row-fluid .span9 { width: 74.4681% } .row-fluid .span8 { width: 53.191% } .row-fluid .span4 { width: 31.9149% } .row-fluid .span3 { width: 21.276% } .span13 { width: 780 } .row-fluid strong { font-size: 10px } .invName { text-align: center; font-size: 13px; font-weight: 700; margin: 0 0 3px; text-transform: uppercase } legend { border-bottom-color: #DDD; text-align: center; line-height: 16px; font-size: 14px; font-weight: 700; margin-bottom: 8px } .table td, .table th { line-height: 10px } .table-bordered> tbody> tr.thead> th { text-align: center } .table tr.thead th { vertical-align: middle } .table { margin-bottom: 0px } .table td.text-right { text-align: right } .table td.text-center { text-align: center } .row-fluid [class*=span]:first-child { margin-left: 0 } .row-fluid .span6 { width: 48.9362%; margin-top: 10px; } .row-fluid [class*=span] { min-height: 12px } .footer { font-style: italic; font-weight: 700; margin-bottom: 0; font-size: 13px } .row-fluid:after { clear: both } .row-fluid:after, .row-fluid:before { content: ""; display: table; line-height: 0 } .pull-right[class*=span], .row-fluid .pull-right[class*=span] { float: right } .percentage:after { content: " %" } tr:last-child td { border-bottom: none } @media print { .container { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none } .no-print { display: none !important } } .divButton { margin-right: auto; margin-left: auto; width: 700px; line-height: 16px; padding: 10px } .divButton .button { float: right } .divButton:after, .divButton:before { content: ""; display: table; line-height: 0 } .divButton:after { clear: both } .button { border-top: 1px solid #96d1f8; background: #65a9d7; background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7)); background: -webkit-linear-gradient(top, #3e779d, #65a9d7); background: -moz-linear-gradient(top, #3e779d, #65a9d7); background: -ms-linear-gradient(top, #3e779d, #65a9d7); background: -o-linear-gradient(top, #3e779d, #65a9d7); padding: 5px 10px; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; -webkit-box-shadow: rgba(0, 0, 0, 1)0 1px 0; -moz-box-shadow: rgba(0, 0, 0, 1)0 1px 0; box-shadow: rgba(0, 0, 0, 1)0 1px 0; text-shadow: rgba(0, 0, 0, .4)0 1px 0; color: #fff; font-size: 14px; font-family: Georgia, serif; text-decoration: none; vertical-align: middle } .button:hover { border-top-color: #28597a; background: #28597a; color: #ccc; cursor: pointer } .button:active { border-top-color: #1b435e; background: #1b435e } [class*=" icon-"], [class^=icon-] { background-image: url(../img/glyphicons-halflings.png); background-position: 14px 14px; background-repeat: no-repeat; display: inline-block; height: 16px; line-height: 16px; margin-top: 1px; vertical-align: text-top; width: 14px } .icon-white { background-image: url(../img/glyphicons-halflings-white.png) } .icon-print { background-position: -96px -48px } .em { font-size: 12px; display: none; } .invoice_background { opacity: 0.3; filter: alpha(opacity=100); width: 250px; background: none z-index: 1; position: absolute; display: block; margin-top: 320px; margin-left: 275px; } .next-page { page-break-inside: always; page-break-after: always } .bodertable { border: 1px solid #8F9AA3; border-collapse: collapse; padding-bottom: 2px; padding-left: 5px; padding-right: 2px; padding-top: 0px; } .nom { font-weight: normal !important; } .boderTop { border-top: 1px solid #000 !important; } .textFirebase { position: absolute; top: 250px; display: block; right: -230px; font-size: 11px; -ms-transform: rotate(270deg); /* IE 9 */ -webkit-transform: rotate(270deg); /* Safari */ transform: rotate(270deg); /* Standard syntax */ } .textFirebase2 { position: absolute; top: 250px; display: block; right: 0px; font-style: italic; font-size: 12px; -ms-writing-mode: bt-lr; -ms-transform: rotate(180deg); transform: rotate(180deg); } .phathanh { position: absolute; opacity: 0.8; filter: alpha(opacity=100); top: 104px; left: 182px; width: 144px; height: auto; z-index: 1; background: none; } .logo {} .boder { border: solid 1px; margin-left: 7px; margin-right: 9px; } .boderfull { border: solid 1px; } .boderleftrighy { boder-left: solid 1px; boder-right: solid 1px; } .barcode { font-weight: normal; font-style: normal; line-height: normal; sans-serif; font-size: 12pt }
+  body[style="margin: 0; padding: 0"]
+    #main.container[style="display: table"]
+      img.invoice_background[style="opacity: 0.3;width: 350px; position: absolute; display: block; margin-top: 410px; margin-left: 270px;"]
+      #invoice0header1.border2
+        div[style="overflow: hidden;margin-top:10px"]
+          div[style="float: left;width: 73%;"]
+            div[style="float: left;width: 40%;"]
+              img[src="https://salt.tikicdn.com/cache/w1200/media/catalog/product/t/i/tiki.u2683.d20160712.t143702.jpg" alt="" style="width: 150px;"]
+            div[style="float: right;width: 60%; text-align: center;margin-top:10px;"]
+              b[style="font-size: 23px!important;line-height:22px;color:red;"]
+                |  HÓA ĐƠN GIÁ TRỊ GIA TĂNG
+                br
+              br
+              i.em
+
+              p[style="margin:2px 0px;" align="center"]
+                |  Ngày
+                em.em
+                  |  (Date)
+                = " #{@invoice.invoice_date.day} tháng"
+                em.em
+                  |  (month)
+                = " #{@invoice.invoice_date.month} năm"
+                em.em
+                  |  (year)
+                = " #{@invoice.invoice_date.year}"
+          div[style="float: right;line-height: 1.4;margin-top:20px;margin-right:9px;"]
+            |  Mẫu số
+            em.em
+              | (Form No.)
+            = ": #{@invoice.form_identifier}"
+            br
+            |  Ký hiệu
+            em.em
+              | (Serial)
+            = ": #{@invoice.serial_number}"
+            br
+            |  Số
+            em.em
+              | (No.)
+            | :
+            b[style="color:red;font-size:18px"]
+              = ": #{@invoice.invoice_number}"
+        p[style="color:red;font-size:14px; margin-top:10px;margin-bottom:10px; text-transform: uppercase; text-align: center;"]
+
+        div
+          table.fixTa[border="0" cellspacing="0" cellpadding="0" width="100%" style="font-size:13px; margin-top:15px; line-height:18px;"]
+            tbody
+              tr
+                td[width="100" valign="middle" nowrap="nowrap"]
+                  | Đơn vị bán hàng
+                td[width="5" valign="top"]
+                  | :
+                td[colspan="6" valign="middle"]
+                  b[style="font-size:16px!important;font-weight:bold;width:800px;color:#00b9f4"]
+                    = @invoice.company.name
+              tr
+                td[width="100" valign="middle" nowrap="nowrap"]
+                  | Mã số thuế
+                td[width="5" valign="top"]
+                  | :
+                td[colspan="5" valign="middle"]
+                  span[style="font-weight: bold; letter-spacing: 5px;font-size:13px;"]
+                    = @invoice.company.tax_identification_number
+              tr
+                td[width="100" valign="top" nowrap="nowrap"]
+                  | Địa chỉ
+                td[valign="top"]
+                  | :
+                td[colspan="5" valign="middle"]
+                  span[style="line-height:17px;"]
+                    = @invoice.company.address
+              tr
+                td[width="100" valign="top" nowrap="nowrap"]
+                  | Điện thoại
+                td[width="5" valign="top"]
+                  | :
+                td[colspan="5" valign="middle"]
+                  span[style="line-height:17px;"]
+                    = @invoice.company.phone_number
+        br
+        .fixTa
+          div[style="line-height: 17px; padding-bottom:5px; margin-bottom:5px; border:1px #000 solid;padding-left:10px; padding-top: 5px;"]
+            table[style="font-size:13px;"]
+              tbody
+                tr
+                  td[width="140" valign="left" nowrap="nowrap"]
+                    |  Họ tên người mua hàng
+                    i.em
+                      |  (Buyer's name)
+                  td[width="5" valign="top"]
+                    | :
+                  td[colspan="5" valign="left"]
+                    span
+                      = @invoice.customer.name
+                tr
+                  td[width="140" valign="left" nowrap="nowrap"]
+                    |  Đơn vị mua hàng
+                    i.em
+                      |  (Company name)
+                  td[width="5" valign="top"]
+                    | :
+                  td[colspan="5" valign="left"]
+                    span
+                      = @invoice.customer.name
+                tr
+                  td[width="140" valign="left" nowrap="nowrap"]
+                    |  Mã số thuế
+                    i.em
+                      |  (Tax code)
+                  td[width="5" valign="left"]
+                    | :
+                  td[colspan="5" valign="left"]
+                    span
+                      | -------
+                tr
+                  td[width="140" valign="top" nowrap="nowrap"]
+                    | Địa chỉ
+                    i.em
+                      | (Address)
+                  td[valign="top"]
+                    | :
+                  td[colspan="5" valign="left"]
+                    span[style="line-height:17px;"]
+                      = @invoice.customer.address
+                tr
+                  td[width="140" valign="left" nowrap="nowrap"]
+                    |  Điện thoại
+                  td[width="5" valign="left"]
+                    | :
+                  td[width="200" valign="middle" nowrap="nowrap"]
+                    = @invoice.customer.phone_number
+                  td[valign="left" nowrap="nowrap"]
+                    | Hình thức thanh toán
+                    i.em
+                      |  (Method of payment)
+                  td[width="5" valign="left"]
+                    | :
+                  td[valign="middle" nowrap="nowrap"]
+                    = PAYMENT_METHOD[@invoice.payment_method]
+      .wallperTable
+        table#invoice0table1.table.table-bordered
+          thead
+            tr.thead[style="font-size:11px; line-height:15px;"]
+              th[style="width:30px"]
+                p[style="margin:2px 2px;line-height:15px;"]
+                  span
+                    | STT
+                p[style="margin:2px 2px;"]
+                  em.em
+                    | (No.)
+              th[style=""]
+                p[style="margin:2px 2px;line-height:15px;"]
+                  span
+                    | Tên hàng hóa dịch vụ
+                p[style="margin:2px 2px;"]
+                  em.em
+                    | (Description of goods/service)
+              th[style="width: 50px;"]
+                p[style="margin:2px 2px;line-height:15px;"]
+                  span
+                    | Đơn vị tính
+                p[style="margin:2px 2px;"]
+                  em.em
+                    | (Unit)
+              th[style="width: 50px;"]
+                p[style="margin:2px 2px;line-height:15px;"]
+                  span
+                    | Số lượng
+                p[style="margin:2px 2px;"]
+                  em.em
+                    | (Quantity)
+              th[style="width: 80px;"]
+                p[style="margin:2px 2px;line-height:15px;"]
+                  span
+                    | Đơn giá trước chiết khấu
+                p[style="margin:2px 2px;"]
+                  em.em
+                    | (Unit price)
+              th[style="width: 80px;"]
+                p[style="margin:2px 2px;line-height:15px;"]
+                  span
+                    | Tổng số tiền chiết khấu
+                p[style="margin:2px 2px;"]
+                  em.em
+              th[style="width: 90px;"]
+                p[style="margin:2px 2px;line-height:15px;"]
+                  span
+                    | Thành tiền trước thuế
+                p[style="margin:2px 2px;"]
+                  em.em
+                    | (Amount before VAT)
+              th[style="width: 80px;"]
+                p[style="margin:2px 2px;line-height:15px;"]
+                  span
+                    | Thuế suất GTGT
+                p[style="margin:2px 2px;"]
+                  em.em
+                    | (VAT rate)
+              th[style="width: 80px;"]
+                p[style="margin:2px 2px;line-height:15px;"]
+                  span
+                    | Tiền thuế
+                p[style="margin:2px 2px;"]
+                  em.em
+                    | VAT
+              th[style="width: 95px;"]
+                p[style="margin:2px 2px;line-height:15px;"]
+                  span
+                    | Thành tiền sau thuế GTGT
+                  br
+                  em.em
+                    | (Amount after VAT)
+            tr
+              th
+                p.text-center[style="margin:2px 2px;"]
+                  | 1
+              th.text-center
+                | 2
+              th.text-center
+                | 3
+              th.text-center
+                | 4
+              th.text-center
+                | 5
+              th.text-center
+                | 6
+              th.text-center
+                | 7=4x5-6
+              th.text-center
+                | 8
+              th.text-center
+                | 9=7x8
+              th.text-center
+                | 10=7+9
+          tbody
+            - @invoice.items.each_with_index do |item, index|
+              tr
+                td.text-center[width="30" align="center"]
+                  p[style="margin:2px 2px;"]
+                    = index + 1
+                td.tdFixBD
+                  p[style="margin:2px 2px;line-height:13px;"]
+                    = item.product.name
+                td.text-center
+                  p[style="margin:2px 2px;"]
+                    = item.product.unit
+                td.text-center
+                  p[style="margin:2px 2px;"]
+                    = number_to_currency(item.quantity)
+                td.text-right
+                  p[style="margin:2px 2px;"]
+                    = number_to_currency(item.price)
+                td.text-right
+                  p[style="margin:2px 2px;"]
+                    | 0
+                td.text-right
+                  p[style="margin:2px 2px;"]
+                    = number_to_currency(item.total)
+                td.text-center
+                  p[style="margin:2px 2px;"]
+                    = "#{@invoice.vat_percent} %"
+                td.text-right
+                  p[style="margin:2px 2px;"]
+                    = number_to_currency(item.total * @invoice.vat_percent / 100)
+                td.text-right
+                  p[style="margin:2px 2px;"]
+                    = number_to_currency(item.total * (100 + @invoice.vat_percent) / 100)
+
+            - if @invoice.items.size < 10
+              - 10.times do |time|
+                tr
+                  td
+                    |  
+                  td
+                    |  
+                  td
+                    |  
+                  td
+                    |  
+                  td
+                    |  
+                  td
+                    |  
+                  td
+                    |  
+                  td
+                    |  
+                  td
+                    |  
+                  td
+                    |  
+      #invoice0footer.row.border2.footerInvoice
+        div
+          table.fixTa[border="1px solid #000 !important" style="margin-right:2px; font-size:12px;"]
+            tbody
+              tr
+                td[height="23" colspan="6" valign="middle"]
+                  strong[style="margin: 2px 2px"]
+                    | Tổng cộng
+                    em.em
+                      | (Total amount):
+                td[width="92" align="right" nowrap="nowrap"]
+                  p[style="margin: 2px 2px"]
+                    = number_to_currency(@invoice.total)
+                td[width="82"]
+                  strong
+
+                td[width="82" align="right" nowrap="nowrap"]
+                  p[style="margin: 2px 2px"]
+                    = number_to_currency(@invoice.vat_amount)
+                td[width="97" align="right" nowrap="nowrap"]
+                  p[style="margin: 2px 2px"]
+                    = number_to_currency(@invoice.paid_amount)
+              tr
+                td[height="23" colspan="10" style="margin:2px 2px;"]
+                  strong
+                    = " Số tiền viết bằng chữ : #{@invoice.paid_amount.humanize} đồng"
+        .text-left[colspan="6" style="margin-left:px;height:150px;line-height:17px"]
+          .row-fluid
+            .span6
+              p.text-center
+                b
+                  | Người mua hàng
+                i.em
+                  | (Buyer)
+                br
+                i
+                  | (Ký, ghi rõ họ tên)
+                br
+                i.em
+                  | (Sign & full name)
+              br
+            .span6
+              p.text-center
+                b
+                  | Người bán hàng
+                i.em
+                  | (Seller)
+                br
+                i
+                  | (Ký, ghi rõ họ tên)
+                br
+                i.em
+                  | (Sign & full name)
+              - if @invoice.approved?
+                a[href="#" style="text-decoration:none;"]
+                .text-center[style="padding-top:10px"]
+                  #kysoban[style="margin: 0 auto; border: solid 1px #ff0000; padding: 3px; color: #ff0000; position: relative; z-index: 1; font-size:13px; max-width: 230px; text-align: left;line-height: 14px"]
+                    img[style="position: absolute; z-index: -1; right: 30px; top:8px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA4CAYAAACyutuQAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAPQSURBVHja3JppSBVRFMev+TALK4LCQhOJNmiD+tJm2EZoFBUFBVFE0I6W0q5ZWNFGCpFFJZS0SJHQF0uLlg9RWB+LLNrpEWZBUdiq0//geTFcZubNe743c68Hfoze++a+fp2ZO+feMcEwDBFJpNUmCD8jmGvY/bsycejaRXSCgEw2DjnACHQCmXwcskA+shcMaCySgkM5GAPmkgy1BzSVycChCgwF2ZB5F+oLaCgzFoezYBCYApln5n7dhGaCMyAVLIDMffkDOs1yy0AN6AcKIVNj9SFdhFaDk6A7OAGZMrsPqi5ET/FtoAIkgTqwyekE1YV2gH0s9gasQna+6yq0E5Tyzy1gJXgb7iRVhbaC3abfS8ANNyeqKLSRL7NQnAdlbk9WTWg5OMj3DMVTUABadRSaD46bHvbfwFrwMZJBVBGaCE7TesbURpfdnUgHUkFoBDgHepvarkVy36gklMoymaa2JpAHfukmRGVMJRgttW8GL6Id1E+hQ2CW1FbN6xyhm9AansHMQVVAcUcH9kMoh581chR35FLzS2gwlf8gRWq/yhWB0EmoJ8tkSO304CwEbboJ7QJTLdoPgJex+hKvhBZz0SnHA3A0ll/khdBIcMSi/QfYDv7oJNQDHOONDTmoQrgd6y+MtxDtB2RZtDdLCzgthGbb3DcU+0FQJ6H+4DBItuh7xNO30EUokSuBIRZ9tPLcw5se8RFKq02I9RusJTxNW0U9VwUinhkaD6lpMRpvIGcg0aKvRdr8iJsQPaXnQaoMdOvgeHSzp9v00V70vbgLBXMNWiHuBdPBXUhNinKspWChTd9XljW8yBC9iP2AwwowitbzkCoByRGMk86Xml1cAE+8qLH+z3KQahDtO5YpXEjWQWqcy3EowwNs+ugKKPeqApan7QrTumQyqIVUUZhszQGLHPqpxHnuixCy9Fu0v65o5CbaWirly3CCxfl9eOZKshm/mf+ThF8ZCt1PG7gaDkU2Z2uL9PSn0ma4w/j0LvSVr0IsVccLL3P04pmKNgFp64le3q5zGJuyc8rrDQunl8ZUvtAW7QypnbJFrzY+s6RdXPTy3glbyyFLdMnl2VTFfcEwh3G/+JGdsMUppGhyKIjigXgZPFZOiKUu8arTbdCedKXwKdwuH4pAg8vPXuE1j7pCyBLVYuv53nCKvzxVt6qeIZJ6yLs0TkHV9E3hY0S6YqW/5qh26KeldZs2QshSK1cRjRbdVE1fFz5HNHsKTVwhyG/YqlzcY0oKUdySltOf+NkjdBUKlUb1puX1a92FfnJp9J7rNiXinwADAE4w55Whk0mGAAAAAElFTkSuQmCC" kasperskylab_antibanner="on"]
+                    |  Signature Valid
+                    br
+                    = "Ký bởi: #{@invoice.company.name}"
+                    br
+                    = "Ký Ngày: #{@invoice.invoice_date.day} tháng #{@invoice.invoice_date.month} năm #{@invoice.invoice_date.year}"
+        .text-center
+          em
+            | (Cần kiểm tra đối chiếu khi lập, giao, nhận hóa đơn)
+          br
+      div
+        .row.text-center
+          .displayPage
+      .breackPage

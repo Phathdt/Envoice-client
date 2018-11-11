@@ -1,0 +1,10 @@
+.container.mt--8.pb-5
+  .row.justify-content-center
+    .col-lg-12
+      .card.bg-secondary.shadow.border-0
+        .card-header.bg-transparent.pb-5
+          .text-muted.text-center.mt-2.mb-3
+            = t('.new_access_request')
+          = render 'shared/flash', flash: flash
+        .card-body.px-lg-5.py-lg-5
+          = render 'form'

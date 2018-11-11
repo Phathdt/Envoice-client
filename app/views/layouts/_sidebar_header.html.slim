@@ -1,0 +1,7 @@
+a.nav-link aria-expanded="false" data-toggle="collapse" href="##{model.pluralize}"
+  i.text-blue class="#{icon_name}"
+  span = t("nav.#{model.pluralize}.title")
+ul.collapse.list-unstyled id="#{model.pluralize}"
+  li.nav-item
+    - collection.each do |key, path|
+        = render 'layouts/sidebar_item', model: model, key: key, path: path

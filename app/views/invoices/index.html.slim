@@ -1,0 +1,93 @@
+.row
+  .col
+    .card.shadow
+      .card-body.px-lg-5.py-lg-5
+        = search_form_for @search, class: 'full-width' do |f|
+          .row
+            .col-md-6.col-sm-12
+              .form-group
+                label.form-control-label = t('.form_identifier')
+                = f.text_field :form_identifier_cont, class: 'form-control'
+              .form-group
+                label.form-control-label = t('.invoice_number')
+                = f.text_field :invoice_number_cont, class: 'form-control'
+              .form-group
+                label.form-control-label = t('.customer_tax_identification_number')
+                = f.text_field :customer_tax_identification_number_cont, class: 'form-control'
+              .form-group
+                label.form-control-label = t('.customer_name')
+                = f.text_field :customer_name_cont, class: 'form-control'
+            .col-md-6.col-sm-12
+              .form-group
+                label.form-control-label = t('.serial_number')
+                = f.text_field :serial_number_cont, class: 'form-control'
+              .form-group
+                label.form-control-label = t('.serial_number')
+                = f.select :state_eq, enum_options_for_select(Invoice, :state), include_blank: true
+                / = f.select :state_eq, Invoice.states.to_a.map { |w| [w[0].humanize, w[1]] }
+              .form-group
+                label.form-control-label = t('.from_date')
+                = f.date_field :invoice_date_gteq, class: 'form-control'
+              .form-group
+                label.form-control-label = t('.to_date')
+                = f.date_field :invoice_date_lteq, class: 'form-control'
+
+            .col-md-2.col-sm-12
+              button.btn.btn-icon.btn-2.btn-primary type="submit"
+                span.btn-inner--icon
+                  i.fas.fa-search
+
+.row.mt-5
+  .col
+    .card.shadow
+      .card-body.border-0
+        .row
+          .col-sm-10
+            h3.mb-0 = t('.title')
+          .col-sm-2
+            = link_to new_invoice_path, class: "btn btn-icon btn-3 btn-primary" do
+              span.btn-inner--icon
+                i.fas.fa-plus
+              span.btn-inner--text = t('.add')
+
+      .table-responsive
+        table.table.align-items-center.table-flush
+          thead.thead-light
+            tr
+              th scope="col" = t('.form_identifier')
+              th scope="col" = t('.serial_number')
+              th scope="col" = t('.invoice_number')
+              th scope="col" = t('.invoice_date')
+              th scope="col" = t('.customer_name')
+              th scope="col" = t('.state')
+              th scope="col" = t('.show')
+              th scope="col" = t('.edit')
+              th scope="col" = t('.delete')
+          tbody
+            - @invoices.each do |invoice|
+              tr
+                td
+                  = invoice.form_identifier
+                td
+                  = invoice.serial_number
+                td
+                  = invoice.invoice_number
+                td
+                  = invoice.invoice_date
+                td
+                  = invoice.customer&.name
+                td
+                  = enum_l(invoice, :state)
+                td
+                  = link_to t('.show'), invoice, remote: true
+                td
+                  = link_to t('.edit'), [:edit, invoice]
+                td
+                  = link_to t('.delete'), invoice, method: :delete, data: { confirm: 'Are you sure?' }
+
+      = paginate @invoices
+
+
+#invoice-modal.modal.fade tabindex="-1"
+  .modal-dialog.modal-dialog-centered.modal-lg role="document"
+    .modal-content

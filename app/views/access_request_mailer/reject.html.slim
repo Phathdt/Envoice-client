@@ -1,0 +1,1 @@
+= simple_format t('mailer.access_request_mailer.reject.content', user_name: @request.legal_representative, company_name: @request.company_name, reason: @request.reason,link: edit_access_request_url(id: @request.id, token: @request.token))

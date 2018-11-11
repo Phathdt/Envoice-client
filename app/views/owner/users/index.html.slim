@@ -1,0 +1,36 @@
+.row
+  .col
+    .card.shadow
+      .card-header.border-0
+        .row
+          .col-sm-10
+            h3.mb-0 = t('.title')
+          .col-sm-2
+            = link_to new_owner_user_path, class: "btn btn-icon btn-3 btn-primary" do
+              span.btn-inner--icon
+                i.fas.fa-plus
+              span.btn-inner--text = t('.add')
+      .table-responsive
+        table.table.align-items-center.table-flush
+          thead.thead-light
+            tr
+              th scope="col" = t('.index')
+              th scope="col" = t('.name')
+              th scope="col" = t('.email')
+              th scope="col" = t('.status')
+          tbody
+            - @staffs.each_with_index do |staff, index|
+              tr
+                td
+                  = index + 1
+                td
+                  = staff.name
+                td
+                  = staff.email
+                td
+                  - if staff.blocked?
+                    input  data-toggle="toggle" type="checkbox" data-id="#{staff.id}"  class="staff-toggle"
+                  - else
+                    input checked="checked" data-toggle="toggle" type="checkbox" data-id="#{staff.id}" class="staff-toggle"
+
+      = paginate @staffs

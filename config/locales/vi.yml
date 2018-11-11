@@ -1,0 +1,120 @@
+vi:
+  number:
+    currency:
+      format:
+        unit: ''
+        delimiter: ','
+        separator: '.'
+        precision: 0
+        format: '%u%n'
+  access_requests:
+    new:
+      new_access_request: Đăng ký thông tin
+    create:
+      created_success: "Đăng ký thành công, chúng tôi sẽ phản hồi trong thời gian sớm nhất"
+    form:
+      company_information: Thông tin công ty
+      certification: Giấy chứng nhận
+      sign_up: Đăng ký
+      resubmit: Đăng ký lại
+      had_password_sign_in: Đã có tài khoản, đăng nhập
+    update:
+      updated_success: "Đăng ký lại thành công, chúng tôi sẽ phản hồi trong thời gian sớm nhất"
+  place_holder:
+    company_name: Tên công ty
+    legal_representative: Người dại điện pháp luật
+    phone_number: Số điện thoại
+    tax_identification_number: Mã số thuế
+    address: Địa chỉ
+    email: Email
+    business_registration_certificate: Giấy chứng nhận đăng ký  kinh doanh
+    certificate_of_tax_registration: Giấy chứng nhận đăng ký thuế
+    id_legal_representative_front: CMND người đại diện pháp luật (mặt trước)
+    id_legal_representative_back: CMND người đại diện pháp luật (mặt sau)
+    name: Tên sản phẩm
+    unit: Đơn vị tính
+    price: Giá
+    name_customer: Tên khách hàng
+    form_identifier: Mẫu số
+    serial_number: Kí hiệu
+    invoice_number: Số
+    invoice_date: Ngày tạo lập
+    company_name: Tên công ty
+    tax_number: Mã số thuế
+  activerecord:
+    attributes:
+      access_request:
+        company_name: Tên công ty
+        legal_representative: Người dại điện pháp luật
+        phone_number: Số điện thoại
+        tax_identification_number: Mã số thuế
+        address: Địa chỉ
+        email: Email
+      product:
+        name: Tên sản phẩm
+        price: Giá sản phẩm
+        unit: Đơn vị tính
+      customer:
+        phone_number: Số điện thoại
+    enums:
+      invoice:
+        states:
+          pending: Đang chờ xử lí
+          suspended: Đã hủy
+          approved: Đã phát thành
+  nav:
+    dashboards:
+      title: Quản lý tổng hợp
+      dashboard: thông tin chung
+    access_requests:
+      title: Quản lý kiểm duyệt
+      access_requests: Danh sách kiểm duyệt
+    companies:
+      title: "Công ty"
+      company_info: "Thông tin Công ty"
+      manage_user: "Quảng lý người dùng"
+    products:
+      title: "Quản lý sản phẩm"
+      list_product: "Danh mục sản phẩm"
+    invoices:
+      title: Quản lý hóa đơn
+      list_invoice: Danh sách hóa đơn
+      new_invoice: Tạo hóa đơn mới
+    customers:
+      title: Quản lý khách hàng
+      list_customer: Danh sách khách hàng
+      new_customer: Tạo khách hàng mới
+  mailer:
+    access_request_mailer:
+      accept:
+        subject: Xác nhận
+        content: |
+          Thân gửi %{user_name},
+
+          Tài khoản của công ty %{company_name} đã được kiểm duyệt tại hệ thống Envoice.
+          Bạn có thể bắt đầu sử dụng các tính năng tại
+          %{link}
+          Xin cảm ơn
+      reject:
+        subject: Từ chối
+        content: |
+          Thân gửi %{user_name},
+          Tài khoản của công ty %{company_name} đã bị từ chối tại hệ thống Envoice.
+          Với lý do %{reason}
+          Bạn có thể đăng nhập và cập nhật các thông tin cần thiết tại
+          %{link}
+          Xin cảm ơn
+    invoice:
+      send_customer:
+        subject: Hóa đơn điện tử từ công ty %{company_name}
+        content: |
+          Chào quý khách,
+          Envoice gửi đến quý khách thông tin hóa đơn điện tử cho đơn hàng từ công ty %{company_name}.
+          Website tra cứu hoá đơn: %{check_url}
+          Mã tra cứu của quý khách: %{tx_id}
+
+          Thông tin hoá đơn đã được mã hoá và lưu trữ trên blockchain,
+
+          Tìm hiểu thêm %{info_url}
+
+          Quý khách nên lưu trữ những thông tin này để tra cứu khi cần.

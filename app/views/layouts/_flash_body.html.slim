@@ -1,0 +1,7 @@
+div class="alert alert-dismissible alert-#{ALERT_TYPE[key]} fade show"
+  span.alert-inner--icon
+    i.ni class=("#{ALERT_ICON[key]}")
+  span.alert-inner--text
+    = value
+  button.close aria-label="Close" data-dismiss="alert" type="button"
+    span aria-hidden="true" ×

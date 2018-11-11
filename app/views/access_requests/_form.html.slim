@@ -1,0 +1,74 @@
+= form_for @access_request do |f|
+  - if @access_request.errors.any?
+    #error_explanation
+      ul
+        = render 'shared/errors', messages: @access_request.errors.full_messages
+  h2 = t('.company_information')
+  - if @access_request.persisted?
+    = f.hidden_field :token, readonly: true
+
+  .row
+    .col-md-6.col-sm-12
+      .form-group
+        = f.text_field :company_name, class: 'form-control', placeholder: "#{t('place_holder.company_name')}"
+      .form-group
+        = f.text_field :legal_representative, class: 'form-control', placeholder: "#{t('place_holder.legal_representative')}"
+      .form-group
+        = f.text_field :phone_number, class: 'form-control', placeholder: "#{t('place_holder.phone_number')}"
+    .col-md-6.col-sm-12
+      .form-group
+        = f.text_field :tax_identification_number, class: 'form-control', placeholder: "#{t('place_holder.tax_identification_number')}"
+      .form-group
+        = f.text_field :address, class: 'form-control', placeholder: "#{t('place_holder.address')}"
+      .form-group
+        = f.text_field :email, class: 'form-control', placeholder: "#{t('place_holder.email')}"
+
+  h2 = t('.certification')
+  .row
+    .col-md-6.col-sm-12
+      - if @access_request.persisted?
+        - if @access_request.business_registration_certificate.attached?
+          = link_to @access_request.business_registration_certificate, data: {fancybox: "gallery", caption: t('place_holder.business_registration_certificate') } do
+            = image_tag @access_request.business_registration_certificate.variant(resize: "500x500"), class: 'image-full-width'
+        - else
+          = image_tag 'errors.jpg', class: 'image-full-width'
+      .file.btn.btn-lg.btn-primary.btn-upload.btn-full
+        = t('place_holder.business_registration_certificate')
+        = f.file_field :business_registration_certificate, class: 'file-upload', accept:'image/*'
+      .file.btn.btn-lg.btn-primary.btn-upload.btn-full
+        - if @access_request.persisted?
+          - if @access_request.certificate_of_tax_registration.attached?
+            = link_to @access_request.certificate_of_tax_registration, data: {fancybox: "gallery", caption: t('place_holder.certificate_of_tax_registration') } do
+              = image_tag @access_request.certificate_of_tax_registration.variant(resize: "500x500"), class: 'image-full-width'
+          - else
+            = image_tag 'errors.jpg', class: 'image-full-width'
+        = t('place_holder.certificate_of_tax_registration')
+        = f.file_field :certificate_of_tax_registration, class: 'file-upload', accept:'image/*'
+    .col-md-6.col-sm-12
+      .file.btn.btn-lg.btn-primary.btn-upload.btn-full
+        - if @access_request.persisted?
+          - if @access_request.id_legal_representative_front.attached?
+            = link_to @access_request.id_legal_representative_front, data: {fancybox: "gallery", caption: t('place_holder.id_legal_representative_front') } do
+              = image_tag @access_request.id_legal_representative_front.variant(resize: "500x500"), class: 'image-full-width'
+          - else
+            = image_tag 'errors.jpg', class: 'image-full-width'
+        = t('place_holder.id_legal_representative_front')
+        = f.file_field :id_legal_representative_front, class: 'file-upload', accept:'image/*'
+      .file.btn.btn-lg.btn-primary.btn-upload.btn-full
+        - if @access_request.persisted?
+          - if @access_request.id_legal_representative_back.attached?
+            = link_to @access_request.id_legal_representative_back, data: {fancybox: "gallery", caption: t('place_holder.id_legal_representative_back') } do
+              = image_tag @access_request.id_legal_representative_back.variant(resize: "500x500"), class: 'image-full-width'
+          - else
+            = image_tag 'errors.jpg', class: 'image-full-width'
+        = t('place_holder.id_legal_representative_back')
+        = f.file_field :id_legal_representative_back, class: 'file-upload', accept:'image/*'
+
+  .row
+    .col-md-4.mx-auto
+      - submit_text = @access_request.persisted? ? t('.resubmit') : t('.sign_up')
+      = f.submit submit_text, class: 'btn btn-primary btn-lg my-4 btn-full'
+
+  .row
+    .mx-auto
+      h4= link_to t('.had_password_sign_in'), new_user_session_path

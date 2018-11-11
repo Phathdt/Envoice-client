@@ -1,0 +1,56 @@
+.row
+  .col
+    .card.shadow.bg-secondary
+      .card-body
+        h2 = t('access_requests.form.company_information')
+        .row
+          .col-md-6.col-sm-12
+            .form-group
+              label.form-control-label = t('place_holder.company_name')
+              = text_field_tag "", @company.name, class: 'form-control form-control-alternative', disabled: true
+            .form-group
+              label.form-control-label = t('place_holder.legal_representative')
+              = text_field_tag "", @company.legal_representative, class: 'form-control form-control-alternative', disabled: true
+            / = link_to root_path, class: 'btn btn-icon btn-3 btn-outline-secondary' do
+            /   span.btn-inner--icon
+            /     i.fas.fa-exclamation-triangle
+            /   span.btn-inner--text = t('.accept')
+          .col-md-6.col-sm-12
+            .form-group
+              label.form-control-label = t('place_holder.tax_identification_number')
+              = text_field_tag "", @company.tax_identification_number, class: 'form-control form-control-alternative', disabled: true
+            .form-group
+              label.form-control-label = t('place_holder.address')
+              = text_field_tag "", @company.address, class: 'form-control form-control-alternative', disabled: true
+        .row
+          .col-md-8.offset-md-2.col-sm-12
+            = form_for [:customer, @company] do |f|
+              .row
+                .col-md-1
+                  button.btn.btn-outline-secondary type="button"
+                    i.fas.fa-phone
+                .col-md-8
+                  = f.text_field :phone_number, class: 'form-control', placeholder: "#{t('place_holder.phone_number')}", minlength: 10, maxlength: 11, required: true
+                .col-md-2
+                  button.btn.btn-icon.btn-2.btn-primary type="submit"
+                    span.btn-inner--icon
+                      i.fas.fa-pencil-alt
+
+.row
+  .col
+    .card.shadow.bg-secondary
+      .card-body
+        h2 = t('.company_information')
+        .row
+          .col-md-6.col-sm-12
+            .form-group
+              label.form-control-label = t('place_holder.address')
+              = text_field_tag "", @company.account.address, class: 'form-control form-control-alternative', disabled: true
+          .col-md-6.col-sm-12
+            .form-group
+              label.form-control-label = t('place_holder.public_key')
+              = text_field_tag "", @company.account.public_key, class: 'form-control form-control-alternative', disabled: true
+        .row.text-center
+          .col-md-12.col-sm-12
+            button.btn.btn-outline-secondary type="button"
+              = t('.draw')

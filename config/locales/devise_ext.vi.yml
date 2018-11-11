@@ -1,0 +1,23 @@
+vi:
+  devise:
+    sessions:
+      new:
+        forgot_your_password: Quên mật khẩu?
+        new_access: Đăng ký tài khoản
+        email: Email
+        password: Mật khẩu
+    failure:
+      inactive: "Tài khoản của bạn đã bị Block bởi chủ công ty, xin vui lòng liên hệ chủ công ty hoặc Admin"
+    passwords:
+      new:
+        sign_in: Đăng nhập
+        not_received_email: Không nhận được email
+    shared:
+      header:
+        welcome: Welcome!
+        information: Use these awesome forms to login or create new account in your project for free.
+  user:
+    passwords:
+      create:
+        password_reset_email_sent: |
+          Email tạo lại mật khẩu sẽ được gửi cho %{email} nếu có tồn tại trong hệ thống

@@ -1,0 +1,20 @@
+= form_for @product do |f|
+  - if @product.errors.any?
+    #error_explanation
+      ul
+        = render 'shared/errors', messages: @product.errors.full_messages
+
+  .row
+    .col-md-6.col-sm-12
+      .form-group
+        = f.text_field :name, class: 'form-control', placeholder: "#{t('place_holder.name')}"
+      .form-group
+        = f.text_field :unit, class: 'form-control', placeholder: "#{t('place_holder.unit')}"
+    .col-md-6.col-sm-12
+      .form-group
+        = f.text_field :price, class: 'form-control', placeholder: "#{t('place_holder.price')}"
+
+  .row
+    .col-md-4.mx-auto
+      - submit_text = @product.persisted? ? t('.update') : t('.add')
+      = f.submit submit_text, class: 'btn btn-primary btn-lg my-4 btn-full'

@@ -1,0 +1,60 @@
+.row
+  .col
+    .card.shadow
+      .card-body.px-lg-5.py-lg-5
+        = search_form_for @search, class: 'full-width' do |f|
+          .row
+            .col-md-5.col-sm-6
+              .form-group
+                = f.text_field :name_cont, class: 'form-control', placeholder: "#{t('place_holder.name_customer')}"
+              .form-group
+                = f.text_field :address_cont, class: 'form-control', placeholder: "#{t('place_holder.address')}"
+            .col-md-5.col-sm-6
+              .form-group
+                = f.text_field :phone_number_cont, class: 'form-control', placeholder: "#{t('place_holder.phone_number')}"
+              .form-group
+                = f.text_field :email_cont, class: 'form-control', placeholder: "#{t('place_holder.email')}"
+            .col-md-2.col-sm-12
+              button.btn.btn-icon.btn-2.btn-primary type="submit"
+                span.btn-inner--icon
+                  i.fas.fa-search
+.row.mt-5
+  .col
+    .card.shadow
+      .card-body.border-0
+        .row
+          .col-sm-10
+            h3.mb-0 = t('.title')
+          .col-sm-2
+            = link_to new_customer_path, class: "btn btn-icon btn-3 btn-primary" do
+              span.btn-inner--icon
+                i.fas.fa-plus
+              span.btn-inner--text = t('.add')
+
+      .table-responsive
+        table.table.align-items-center.table-flush
+          thead.thead-light
+            tr
+              th scope="col" = sort_link @search, :name,  t('.name')
+              th scope="col" = sort_link @search, :address,  t('.address')
+              th scope="col" = sort_link @search, :phone_number,  t('.phone_number')
+              th scope="col" = sort_link @search, :email,  t('.email')
+              th scope="col" = t('.edit')
+              th scope="col" = t('.delete')
+          tbody
+            - @customers.each do |customer|
+              tr
+                td
+                  = customer.name
+                td
+                  = customer.address
+                td
+                  = customer.phone_number
+                td
+                  = customer.email
+                td
+                  = link_to t('.edit'), [:edit, customer]
+                td
+                  = link_to t('.delete'), customer, method: :delete, data: { confirm: 'Are you sure?' }
+
+      = paginate @customers

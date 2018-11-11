@@ -1,0 +1,103 @@
+= form_for @invoice, html: {class: 'form_invoice'} do |f|
+  - if @invoice.errors.any?
+    #error_explanation
+      ul
+        = render 'shared/errors', messages: @invoice.errors.full_messages
+
+  .row.border-black
+    .col-md-6.col-sm-12
+      .form-group
+        label.form-control-label = t('.company_name')
+        = text_field_tag '', $company.name, class: 'form-control', disabled: true
+      .form-group
+        label.form-control-label = t('.tax_identification_number')
+        = text_field_tag '', $company.tax_identification_number, class: 'form-control', disabled: true
+      .form-group
+        label.form-control-label = t('.address')
+        = text_field_tag '', $company.address, class: 'form-control', disabled: true
+      .form-group
+        label.form-control-label = t('.phone_number')
+        = text_field_tag '', $company.phone_number, class: 'form-control', disabled: true
+    .col-md-6.col-sm-12
+      .form-group
+        label.form-control-label = t('place_holder.form_identifier')
+        = f.text_field :form_identifier, class: 'form-control', placeholder: "#{t('place_holder.form_identifier')}"
+      .form-group
+        label.form-control-label = t('place_holder.serial_number')
+        = f.text_field :serial_number, class: 'form-control', placeholder: "#{t('place_holder.serial_number')}"
+      .form-group
+        label.form-control-label = t('place_holder.invoice_number')
+        = f.text_field :invoice_number, class: 'form-control', placeholder: "#{t('place_holder.invoice_number')}"
+      .form-group
+        label.form-control-label = t('place_holder.invoice_date')
+        = f.date_field :invoice_date, class: 'form-control', placeholder: "#{t('place_holder.invoice_date')}", min: Date.today
+
+  .row.border-black
+    .col-md-6.col-sm-12.customer-invoice
+      = render 'customer', customer: @invoice.customer, f: f
+    .col-md-6.col-sm-12
+      label.form-control-label = t('.payment_method')
+      = f.select :payment_method,  options_for_select(payment_options),{ include_blank: false }, { class: "btn btn-secondary dropdown-toggle" }
+
+  .row.border-black
+    .row.full-width
+      .col-md-10.col-sm-12
+        h3 = t('.items')
+      .col-md-2.col-sm-12
+        .links.btn.btn-icon.btn-3.btn-info
+          = link_to_add_association  t('.add'),f, :items, data: {"association-insertion-node" => "tbody.line_items", "association-insertion-method" => "append"}
+    .table-responsive#table-product.table-striped
+      table.table.align-items-center.table-flush
+        thead.thead-light
+          tr
+            th scope="col" = t('.product_name')
+            th scope="col" = t('.unit')
+            th scope="col" = t('.quantity')
+            th scope="col" = t('.price')
+            th scope="col" = t('.total')
+            th scope="col" = t('.action')
+          tbody.line_items
+          = f.fields_for :items do |item|
+            = render 'item_invoices', f: item
+
+    #total
+      .row
+        .col-md-2.col-sm-12
+        .col-md-2.col-sm-12.text-right.vat-tax
+          label.form-control-label = t('.vat_tax')
+        .col-md-2.col-sm-12
+          .form-group
+            = f.select :vat_percent, options_for_select(percent_select),{ include_blank: false }, { class: "btn btn-secondary dropdown-toggle vat_percent" }
+        .col-md-6.col-sm-12
+          .row
+            .col-md-6.col-sm-12.text-right.label-invoice
+              .form-group
+                label.form-control-label = t('.price_total')
+            .col-md-6.col-sm-12
+              .form-group
+                = text_field_tag '', 0, class: 'form-control price-total', disabled: true
+          .row
+            .col-md-6.col-sm-12.text-right.label-invoice
+              .form-group
+                label.form-control-label = t('.vat_price')
+            .col-md-6.col-sm-12
+              .form-group
+                = text_field_tag '', 0, class: 'form-control vat-price', disabled: true
+          .row
+            .col-md-6.col-sm-12.text-right.label-invoice
+              .form-group
+                label.form-control-label = t('.paid_total')
+            .col-md-6.col-sm-12
+              .form-group
+                = text_field_tag '', 0, class: 'form-control paid-total', disabled: true
+
+  .row
+    .col-md-4.mx-auto
+      - submit_text = @invoice.persisted? ? t('.update') : t('.create')
+      = f.submit submit_text, class: 'btn btn-primary btn-lg my-4 btn-full'
+
+  = hidden_field_tag 'product-price', Product.select(:id, :unit, :price).to_json
+  = hidden_field_tag 'customer-company', Customer.all.to_json
+
+javascript:
+  new InvoiceForm

@@ -1,0 +1,4 @@
+div.col-md-8.offset-md-2
+  - flash.each do |key, value|
+    - next if key == :timedout
+    = render 'layouts/flash_body', key: key, value: value

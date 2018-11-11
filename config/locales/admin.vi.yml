@@ -1,0 +1,23 @@
+vi:
+  admin:
+    access_requests:
+      index:
+        title: Danh sách đăng ký
+        index: ID
+        company_name:  Tên công ty
+        tax_identification_number: MST
+        legal_representative: Người dại điện
+        phone_number: Số điện thoại
+        created_at: Ngạy dăng ký
+        action: Hành động
+        detail: Chi tiết
+      show:
+        accept: Phê duyệt
+        reject: Từ chối
+        submit: Từ chối
+        reason: Lí do từ chối
+        input_reason: Nhập lí do từ chối
+      accept:
+        accept: Hóa đơn đã được phê duyệt
+      reject:
+        reject: Hóa đơn đã bị từ chôi

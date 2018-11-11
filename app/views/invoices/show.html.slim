@@ -1,0 +1,89 @@
+.invoice-box.card
+  #print-this
+    .row
+      .col-sm-4
+      .col-sm-4.text-center
+        h4 = t('.title')
+        h5 = t('.date', day: @invoice.invoice_date.day, month: @invoice.invoice_date.month, year: @invoice.invoice_date.year)
+      .col-sm-1.text-left
+      .col-sm-3.text-left
+        h5 = "#{t('.form_identifier')} : #{@invoice.form_identifier}"
+        h5 = "#{t('.serial_number')} : #{@invoice.serial_number}"
+        h5 = "#{t('.invoice_number')} : #{@invoice.invoice_number}"
+    .row
+      .col-sm-12
+        h6 = "#{t('.company_name')} : #{@invoice.company.name}"
+        h6 = "#{t('.tax_identification_number')} : #{@invoice.company.tax_identification_number}"
+        h6 = "#{t('.address')} : #{@invoice.company.address}"
+        h6 = "#{t('.phone_number')} : #{@invoice.company.phone_number}"
+
+    .row.customer-section
+      .col-sm-12
+        h6 = "#{t('.customer_name')} : #{@invoice.customer.name}"
+        h6 = "#{t('.customer_company_name')} : #{@invoice.customer.company_name}"
+        h6 = "#{t('.customer_tax_identification_number')} : #{@invoice.customer.tax_number}"
+        h6 = "#{t('.address')} : #{@invoice.customer.address}"
+        h6 = "#{t('.payment_method')} : #{@invoice.payment_method}"
+
+    .row.customer-item-table
+      .table-responsive
+        table.table.align-items-center.table-flush
+          thead.thead-light
+            tr
+              th scope="col" = t('.index')
+              th scope="col" = t('.product_name')
+              th scope="col" = t('.unit')
+              th scope="col" = t('.quantity')
+              th scope="col" = t('.price')
+              th scope="col" = t('.total')
+          tbody
+            - @invoice.items.each_with_index do |item, index|
+              tr
+                td
+                  = index + 1
+                td
+                  = item.product.name
+                td
+                  = item.product.unit
+                td
+                  = item.quantity
+                td
+                  = item.price
+                td
+                  = item.total
+
+    .row
+      .col-sm-6
+
+      .col-sm-6
+        h6 = "#{t('.item_price_total')} : #{@invoice.total} đ"
+        h6 = "#{t('.vat_amount')} : #{@invoice.vat_amount} đ"
+        h6 = "#{t('.paid_amount')} : #{@invoice.paid_amount} đ"
+
+    .row
+      .col-sm-12
+        h5.bold = "#{t('.price_text')} : #{@invoice.paid_amount.humanize}"
+        h5.bold = "#{t('.transaction_id')} : #{@invoice.transaction_id.upcase}"
+
+.invoice-box.card
+  .row
+    .col-sm-3
+      = button_to edit_customer_invoice_path(@invoice), method: :get, class: 'btn btn-icon btn-3 btn-primary', form: {target: '_blank'} do
+        span.btn-inner--icon
+          i.fas.fa-edit
+        span.btn-inner--text = t('.edit')
+    .col-sm-3
+      = button_to root_path, method: :path, class: 'btn btn-icon btn-3 btn-primary' do
+        span.btn-inner--icon
+          i.fas.fa-print
+        span.btn-inner--text = t('.print')
+    .col-sm-4
+      = button_to download_customer_invoice_path(@invoice), method: :get, class: 'btn btn-icon btn-3 btn-primary', form: {target: '_blank'} do
+        span.btn-inner--icon
+          i.fas.fa-download
+        span.btn-inner--text = t('.export_json')
+    .col-sm-2
+      = button_to root_path, method: :path, class: 'btn btn-icon btn-3 btn-primary' do
+        span.btn-inner--icon
+          i.fas.fa-check
+        span.btn-inner--text = t('.check')

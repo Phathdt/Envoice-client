@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title
+      | Customer Envoice
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    = render "shared/navbar"
+    /! Main content
+    .main-content
+      /! Top navbar
+      = render "shared/top_navbar"
+      /! Header
+      = render "shared/header"
+      /! Page content
+      .container-fluid.mt--7
+        = yield
+      /! Footer
+      = render "shared/footer"

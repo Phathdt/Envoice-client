@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @customer.name
+p
+  strong Address:
+  = @customer.address
+p
+  strong Phone number:
+  = @customer.phone_number
+p
+  strong Email:
+  = @customer.email
+
+=> link_to 'Edit', edit_customer_customer_path(@customer)
+'|
+=< link_to 'Back', customer_customers_path

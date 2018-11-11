@@ -1,0 +1,5 @@
+li.page-item
+  - unless current_page.first?
+    = link_to  url, rel: 'prev', remote: remote, class: 'page-link' do
+      i.fas.fa-angle-left
+

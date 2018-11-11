@@ -1,0 +1,32 @@
+.invoice-box.card
+  = image_tag @invoice.image, class: 'image-full-width', id: 'print-this'
+.invoice-box.card
+  .row
+    .col-sm-2
+    - if current_user && !@invoice.approved?
+      = button_to edit_customer_invoice_path(@invoice), method: :get, class: 'btn btn-icon btn-3 btn-primary', form: {target: '_blank'} do
+        span.btn-inner--icon
+          i.fas.fa-edit
+        span.btn-inner--text = t('.edit')
+    .col-sm-3
+      = link_to rails_blob_path(@invoice.pdf, disposition: 'preview'),  class: 'btn btn-icon btn-3 btn-primary', target: :_blank  do
+        span.btn-inner--icon
+          i.fas.fa-print
+        span.btn-inner--text = t('.print')
+    .col-sm-4
+      = button_to download_customer_invoice_path(@invoice), method: :get, class: 'btn btn-icon btn-3 btn-primary', form: {target: '_blank'} do
+        span.btn-inner--icon
+          i.fas.fa-download
+        span.btn-inner--text = t('.export_json')
+    - if @invoice.approved? && current_user&.owner?
+      .col-sm-3
+        = button_to approve_customer_invoice_path(@invoice), method: :post, remote: true, class: 'btn btn-icon btn-3 btn-primary' do
+          span.btn-inner--icon
+            i.fas.fa-check
+          span.btn-inner--text = t('.check')
+
+
+javascript:
+  $('.print').on('click', function() {
+    $('#print-this').printThis()
+  });

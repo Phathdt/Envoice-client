@@ -1,0 +1,150 @@
+vi:
+  customer:
+    companies:
+      show:
+        company_information: "Thông tin tài khoản blockchain"
+        draw: "Nạp tiền"
+      update:
+        updated_success: "Cập nhật thông tin Công ty thành công"
+    users:
+      index:
+        add: Thêm
+        title: Danh sách nhân viên
+        index: Số thứ tự
+        name: Tên nhân viên
+        email: Email
+        status: Tình trang hoạt động
+      new:
+        email: Email nhân viên
+        name: Tên nhân viên
+        add: Tạo nhân viên
+        add_staft: Thêm nhân viên mới
+      create:
+        success: Tạo nhân viên thành công, sẽ có mail gửi về nhân viên vừa tạo
+    products:
+      index:
+        title: Quản lý hàng hóa
+        add: Thêm hàng hóa
+        name: Tên sản phẩm
+        unit: Đơn vị tính
+        price: Giá
+        edit: Sửa
+        delete: Xóa
+      new:
+        title: Tạo sản phẩm mới
+      form:
+        add: Thêm sản phẩm mới
+        update: Cập nhật sản phẩm
+      create:
+        created_success: Tạo sản phẩm thành công
+      update:
+        updated_success: Cập nhật sản phẩm thành công
+      destroy:
+        delete_success: Xóa sản phẩm thành công
+    customers:
+      new:
+        title: Tạo thông tin khách hàng mới
+      edit:
+        title: Cập nhật thông tin khách hàng
+      form:
+        add: Thêm khách hàng mới
+        update: Cập nhật thông tin khách hàng
+      index:
+        title: Quản lý khách hàng
+        add:  Khách hàng mới
+        name: Tên khách hàng
+        phone_number: Số điện thoại
+        Email: Email
+        edit: Sửa
+        delete: Xóa
+      create:
+        created_success: Thêm khách hàng thành công
+      update:
+        updated_success: Cập nhật thông tin khách hàng thành công
+      destroy:
+        delete_success: Xóa khách hàng thành công
+    invoices:
+      form:
+        company_name: Tên công ty
+        phone_number: Số diện thoai
+        tax_identification_number: Mã số thuế
+        address: Đại chỉ
+        add: Thêm sản phẩm
+        vat_tax: Thuế GTGT
+        price_total: Tổng tiền sản phẩm
+        vat_price: Tiền thuế
+        paid_total: Tổng tiền phải trả
+        product_name: Tên sản phẩm
+        unit: Đơn vị tính
+        quantity: Số lượng
+        price: Giá thành
+        total: Tổng cộng
+        action: Xóa
+        items: Danh sách sản phẩm
+        payment_method: Hình thưc thanh toán
+        create: Tạo hóa đơn
+        update: Cập nhật hóa đơn
+      item_fields:
+        remove: Xóa sản phẩm
+      customer:
+        customer: Tên khách hàng
+        address: Địa chỉ
+        phone_number: Số điện thoại
+        email: Địa chỉ email
+      new:
+        title: Tạo hóa đơn mới
+      create:
+        created_success: Tạo hóa đơn thành công
+      update:
+        updated_success: Cập nhật hóa đơnthành công
+      destroy:
+        delete_success: Xóa hóa đơnthành công
+      index:
+        form_identifier: Mẫu số
+        serial_number: Kí hiệu
+        invoice_number: Số
+        invoice_date: Ngày tạo lập
+        customer_tax_identification_number: Má số thuế
+        customer_name: Tên khách hàng
+        state: Trạng thái
+        edit: Sửa
+        delete: Xóa
+        show: Xem
+        from_date: Tạo từ ngày
+        to_date: Tạo đến ngày
+        title: Danh sách hóa đơn
+        add: Thêm hóa đơn mới
+      item_invoices:
+        remove: Xóa sản phẩm
+      show:
+        form_identifier: Mẫu số
+        serial_number: Kí hiệu
+        invoice_number: Số
+        invoice_date: Ngày tạo lập
+        tax_identification_number: Má số thuế
+        company_name: Tên đơn vị bán hàng
+        phone_number: Số điện thoại
+        address: Địa chỉ
+        title: Hóa đơn giá trị gia tăng
+        date: Ngày %{day} tháng %{month} năm %{year}
+        customer_name: Tên người mua hàng
+        customer_company_name: Tên đơn vị
+        customer_tax_identification_number: Má số thuế
+        payment_method: Hình thức thanh toán
+        index: Số thứ tự
+        product_name: Sản phẩm dịch vụ
+        unit: Đơn vị tính
+        quantity: Số lượng
+        price: Giá
+        total: Thành tiền
+        item_price_total: Cộng tiền hàng
+        vat_amount: Tiền thuế
+        paid_amount: Tổng tiền thanh toán
+        price_text: Số tiền viết bằng chữ
+        transaction_id: Mã tra cứu
+        print: In hóa đơn
+        export_json: Tải hóa đơn (JSON)
+        check: Ký hóa đơn
+        edit: Sửa
+      approve:
+        updated_success: Ký hóa đơn thành công

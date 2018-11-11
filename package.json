@@ -1,0 +1,25 @@
+{
+  "name": "Envoice",
+  "private": true,
+  "dependencies": {
+    "@creative-tim-official/argon-dashboard-free": "https://github.com/Phathdt/argon-dashboard",
+    "@fancyapps/fancybox": "^3.5.2",
+    "anchor-js": "^4.1.1",
+    "bootstrap": "^4.1.3",
+    "bootstrap-datepicker": "^1.8.0",
+    "chart.js": "^2.7.2",
+    "clipboard": "^2.0.1",
+    "font-awesome": "^4.7.0",
+    "headroom.js": "^0.9.4",
+    "holderjs": "^2.9.4",
+    "jquery": "^3.3.1",
+    "jquery-scroll-lock": "^3.1.3",
+    "jquery.scrollbar": "^0.2.11",
+    "nouislider": "^12.0.0",
+    "nucleo": "^0.0.0",
+    "onscreen": "^1.3.2",
+    "popper.js": "^1.14.4",
+    "print-this": "^1.14.0",
+    "prismjs": "^1.15.0"
+  }
+}

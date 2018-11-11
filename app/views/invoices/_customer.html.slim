@@ -1,0 +1,12 @@
+.form-group
+  label.form-control-label = t('.customer')
+  = f.collection_select :customer_id, Customer.all, :id, :name, { include_blank: true }, { class: "btn btn-secondary dropdown-toggle customer-id" }
+.form-group
+  label.form-control-label = t('.address')
+  = text_field_tag '', '',class: 'form-control address'
+.form-group
+  label.form-control-label = t('.phone_number')
+  = text_field_tag '', '',class: 'form-control phone_number'
+.form-group
+  label.form-control-label = t('.email')
+  = text_field_tag '', '',class: 'form-control email'

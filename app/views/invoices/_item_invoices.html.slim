@@ -1,0 +1,19 @@
+tr.nested-fields
+  td
+    .form-group
+      = f.collection_select :product_id, Product.all, :id, :name ,  { include_blank: false }, { class: "btn btn-secondary dropdown-toggle product_id" }
+  td
+    .form-group
+      = text_field_tag '', '',class: 'form-control unit', disabled: true
+  td
+    .form-group
+      = f.number_field :quantity, class: 'form-control quantity', min: 0
+  td
+    .form-group
+      = f.number_field :price, class: 'form-control price', disabled: true
+  td
+    .form-group
+      = text_field_tag '', 0, class: 'form-control total', disabled: true
+  td
+    button.btn.btn-danger type="button"
+      = link_to_remove_association t('.remove'), f

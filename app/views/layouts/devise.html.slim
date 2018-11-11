@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title
+      | Envoice
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body.bg-default
+    .main-content
+      /! Navbar
+      = render "devise/shared/navbar"
+      /! Header
+      = render "devise/shared/header"
+      /! Page content
+      = yield
+
+    /! Footer
+    = render "devise/shared/footer"
+
+

@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @product.name
+p
+  strong Unit:
+  = @product.unit
+p
+  strong Price:
+  = @product.price
+
+=> link_to 'Edit', edit_customer_product_path(@product)
+'|
+=< link_to 'Back', customer_products_path

@@ -1,0 +1,39 @@
+/! Sidenav
+nav#sidenav-main.navbar.navbar-vertical.fixed-left.navbar-expand-md.navbar-light.bg-white
+  .container-fluid
+    /! Toggler
+    button.navbar-toggler aria-controls="sidenav-main" aria-expanded="false" aria-label=("Toggle navigation") data-target="#sidenav-collapse-main" data-toggle="collapse" type="button"
+      span.navbar-toggler-icon
+    /! Brand
+    = link_to root_path, class: 'navbar-brand pt-0'
+      = image_tag  "blue.png", class: 'navbar-brand-img'
+    /! User
+    ul.nav.align-items-center.d-md-none
+      = render "shared/user_menu", render_name: false
+
+    /! Collapse
+    #sidenav-collapse-main.collapse.navbar-collapse
+      /! Collapse header
+      .navbar-collapse-header.d-md-none
+        .row
+          .col-6.collapse-brand
+            = link_to root_path do
+              = image_tag  "blue.png"
+          .col-6.collapse-close
+            button.navbar-toggler aria-controls="sidenav-main" aria-expanded="false" aria-label=("Toggle sidenav") data-target="#sidenav-collapse-main" data-toggle="collapse" type="button"
+              span
+              span
+
+      ul.navbar-nav.sidebar
+        - if current_user.owner? || current_user.staff?
+          = render 'layouts/sidebar_header', model: 'dashboard', icon_name: 'ni ni-tv-2', collection: ConstantHelper::DASHBOARD_CUSTOMER_SIDEBAR
+        - if current_user.owner?
+          = render 'layouts/sidebar_header', model: 'company', icon_name: 'fas fa-building', collection: ConstantHelper::COMPANY_SIDEBAR
+
+        = render 'layouts/sidebar_header', model: 'product', icon_name: 'fas fa-box', collection: ConstantHelper::PRODUCT_SIDEBAR
+        - if current_user.staff?
+          = render 'layouts/sidebar_header', model: 'invoice', icon_name: 'fas fa-file-invoice-dollar', collection: ConstantHelper::INVOICE_STAFF_SIDEBAR
+
+        - if current_user.owner?
+          = render 'layouts/sidebar_header', model: 'invoice', icon_name: 'fas fa-file-invoice-dollar', collection: ConstantHelper::INVOICE_OWNER_SIDEBAR
+        = render 'layouts/sidebar_header', model: 'customer', icon_name: 'fas fa-users', collection: ConstantHelper::CUSTOMER_SIDEBAR
