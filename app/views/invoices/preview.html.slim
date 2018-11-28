@@ -63,7 +63,7 @@ html[lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:hnx="http://www.w3.org
                   | :
                 td[colspan="6" valign="middle"]
                   b[style="font-size:16px!important;font-weight:bold;width:800px;color:#00b9f4"]
-                    = @invoice.company.name
+                    = @company.name
               tr
                 td[width="100" valign="middle" nowrap="nowrap"]
                   | Mã số thuế
@@ -71,7 +71,7 @@ html[lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:hnx="http://www.w3.org
                   | :
                 td[colspan="5" valign="middle"]
                   span[style="font-weight: bold; letter-spacing: 5px;font-size:13px;"]
-                    = @invoice.company.tax_identification_number
+                    = @company.tax_identification_number
               tr
                 td[width="100" valign="top" nowrap="nowrap"]
                   | Địa chỉ
@@ -79,7 +79,7 @@ html[lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:hnx="http://www.w3.org
                   | :
                 td[colspan="5" valign="middle"]
                   span[style="line-height:17px;"]
-                    = @invoice.company.address
+                    = @company.address
               tr
                 td[width="100" valign="top" nowrap="nowrap"]
                   | Điện thoại
@@ -87,7 +87,7 @@ html[lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:hnx="http://www.w3.org
                   | :
                 td[colspan="5" valign="middle"]
                   span[style="line-height:17px;"]
-                    = @invoice.company.phone_number
+                    = @company.phone_number
         br
         .fixTa
           div[style="line-height: 17px; padding-bottom:5px; margin-bottom:5px; border:1px #000 solid;padding-left:10px; padding-top: 5px;"]
@@ -360,7 +360,7 @@ html[lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:hnx="http://www.w3.org
                     img[style="position: absolute; z-index: -1; right: 30px; top:8px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA4CAYAAACyutuQAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAPQSURBVHja3JppSBVRFMev+TALK4LCQhOJNmiD+tJm2EZoFBUFBVFE0I6W0q5ZWNFGCpFFJZS0SJHQF0uLlg9RWB+LLNrpEWZBUdiq0//geTFcZubNe743c68Hfoze++a+fp2ZO+feMcEwDBFJpNUmCD8jmGvY/bsycejaRXSCgEw2DjnACHQCmXwcskA+shcMaCySgkM5GAPmkgy1BzSVycChCgwF2ZB5F+oLaCgzFoezYBCYApln5n7dhGaCMyAVLIDMffkDOs1yy0AN6AcKIVNj9SFdhFaDk6A7OAGZMrsPqi5ET/FtoAIkgTqwyekE1YV2gH0s9gasQna+6yq0E5Tyzy1gJXgb7iRVhbaC3abfS8ANNyeqKLSRL7NQnAdlbk9WTWg5OMj3DMVTUABadRSaD46bHvbfwFrwMZJBVBGaCE7TesbURpfdnUgHUkFoBDgHepvarkVy36gklMoymaa2JpAHfukmRGVMJRgttW8GL6Id1E+hQ2CW1FbN6xyhm9AansHMQVVAcUcH9kMoh581chR35FLzS2gwlf8gRWq/yhWB0EmoJ8tkSO304CwEbboJ7QJTLdoPgJex+hKvhBZz0SnHA3A0ll/khdBIcMSi/QfYDv7oJNQDHOONDTmoQrgd6y+MtxDtB2RZtDdLCzgthGbb3DcU+0FQJ6H+4DBItuh7xNO30EUokSuBIRZ9tPLcw5se8RFKq02I9RusJTxNW0U9VwUinhkaD6lpMRpvIGcg0aKvRdr8iJsQPaXnQaoMdOvgeHSzp9v00V70vbgLBXMNWiHuBdPBXUhNinKspWChTd9XljW8yBC9iP2AwwowitbzkCoByRGMk86Xml1cAE+8qLH+z3KQahDtO5YpXEjWQWqcy3EowwNs+ugKKPeqApan7QrTumQyqIVUUZhszQGLHPqpxHnuixCy9Fu0v65o5CbaWirly3CCxfl9eOZKshm/mf+ThF8ZCt1PG7gaDkU2Z2uL9PSn0ma4w/j0LvSVr0IsVccLL3P04pmKNgFp64le3q5zGJuyc8rrDQunl8ZUvtAW7QypnbJFrzY+s6RdXPTy3glbyyFLdMnl2VTFfcEwh3G/+JGdsMUppGhyKIjigXgZPFZOiKUu8arTbdCedKXwKdwuH4pAg8vPXuE1j7pCyBLVYuv53nCKvzxVt6qeIZJ6yLs0TkHV9E3hY0S6YqW/5qh26KeldZs2QshSK1cRjRbdVE1fFz5HNHsKTVwhyG/YqlzcY0oKUdySltOf+NkjdBUKlUb1puX1a92FfnJp9J7rNiXinwADAE4w55Whk0mGAAAAAElFTkSuQmCC" kasperskylab_antibanner="on"]
                     |  Signature Valid
                     br
-                    = "Ký bởi: #{@invoice.company.name}"
+                    = "Ký bởi: #{@company.name}"
                     br
                     = "Ký Ngày: #{@invoice.invoice_date.day} tháng #{@invoice.invoice_date.month} năm #{@invoice.invoice_date.year}"
         .text-center

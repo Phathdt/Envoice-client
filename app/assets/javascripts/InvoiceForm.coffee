@@ -1,13 +1,9 @@
 class @InvoiceForm
   dataPrice : []
-  dataCustomer : []
 
   constructor: ->
     @dataPrice = JSON.parse($('#product-price').val())
-    @dataCustomer = JSON.parse($('#customer-company').val())
-    @prepareCustomer()
     @prepareProduct()
-    @selectCustomer()
     @selectProduct()
     @selectQuanity()
     @selectVatPercent()
@@ -69,29 +65,6 @@ class @InvoiceForm
     $('.price-total').val(price_total)
     $('.vat-price').val(price_total * vat_percent / 100)
     $('.paid-total').val(price_total - price_total * vat_percent / 100)
-
-  selectCustomer: ->
-    self = @
-
-    $('.customer-invoice').on 'change', '.customer-id', ->
-      customer_id = parseInt($(this).val())
-      customers = self.dataCustomer.filter (x) -> x.id == customer_id
-      customer = customers[0]
-
-      $('.customer-invoice .address').val(customer.address)
-      $('.customer-invoice .phone_number').val(customer.phone_number)
-      $('.customer-invoice .email').val(customer.email)
-
-  prepareCustomer: ->
-    return if $('.customer-invoice .customer-id').val() == ''
-    customer_id = parseInt($('.customer-invoice .customer-id').val())
-
-    customers = @dataCustomer.filter (x) -> x.id == customer_id
-    customer = customers[0]
-
-    $('.customer-invoice .address').val(customer.address)
-    $('.customer-invoice .phone_number').val(customer.phone_number)
-    $('.customer-invoice .email').val(customer.email)
 
   prepareProduct: ->
     self = @

@@ -24,7 +24,7 @@
               = text_field_tag "", @company.address, class: 'form-control form-control-alternative', disabled: true
         .row
           .col-md-8.offset-md-2.col-sm-12
-            = form_for [:customer, @company] do |f|
+            = form_for @company do |f|
               .row
                 .col-md-1
                   button.btn.btn-outline-secondary type="button"
@@ -42,15 +42,15 @@
       .card-body
         h2 = t('.company_information')
         .row
-          .col-md-6.col-sm-12
-            .form-group
-              label.form-control-label = t('place_holder.address')
-              = text_field_tag "", @company.account.address, class: 'form-control form-control-alternative', disabled: true
-          .col-md-6.col-sm-12
-            .form-group
-              label.form-control-label = t('place_holder.public_key')
-              = text_field_tag "", @company.account.public_key, class: 'form-control form-control-alternative', disabled: true
-        .row.text-center
-          .col-md-12.col-sm-12
-            button.btn.btn-outline-secondary type="button"
-              = t('.draw')
+        /   .col-md-6.col-sm-12
+        /     .form-group
+        /       label.form-control-label = t('place_holder.address')
+        /       = text_field_tag "", @company.account.address, class: 'form-control form-control-alternative', disabled: true
+        /   .col-md-6.col-sm-12
+        /     .form-group
+        /       label.form-control-label = t('place_holder.public_key')
+        /       = text_field_tag "", @company.account.public_key, class: 'form-control form-control-alternative', disabled: true
+        / .row.text-center
+        /   .col-md-12.col-sm-12
+        /     button.btn.btn-outline-secondary type="button"
+        /       = t('.draw')

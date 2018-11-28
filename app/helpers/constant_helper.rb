@@ -6,7 +6,8 @@ module ConstantHelper
   ].freeze
 
   COMPANY_SIDEBAR = [
-    ['manage_user', URL_HELPERS.owner_users_path(locale: I18n.locale)]
+    ['manage_user', URL_HELPERS.owner_users_path(locale: I18n.locale)],
+    ['company_info', URL_HELPERS.edit_company_path(id: 1, locale: I18n.locale)],
   ].freeze
 
   PRODUCT_SIDEBAR = [

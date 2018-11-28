@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     end
 
     resources :dashboards, only: %i(index)
-    resources :companies, only: %i(update show)
+    resources :companies, only: %i(update edit)
     resources :products, except: %i(show)
     resources :invoices do
       get :download, on: :member

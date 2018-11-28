@@ -5,39 +5,13 @@
         = render 'shared/errors', messages: @invoice.errors.full_messages
 
   .row.border-black
-    .col-md-6.col-sm-12
-      .form-group
-        label.form-control-label = t('.company_name')
-        = text_field_tag '', $company.name, class: 'form-control', disabled: true
-      .form-group
-        label.form-control-label = t('.tax_identification_number')
-        = text_field_tag '', $company.tax_identification_number, class: 'form-control', disabled: true
-      .form-group
-        label.form-control-label = t('.address')
-        = text_field_tag '', $company.address, class: 'form-control', disabled: true
-      .form-group
-        label.form-control-label = t('.phone_number')
-        = text_field_tag '', $company.phone_number, class: 'form-control', disabled: true
-    .col-md-6.col-sm-12
-      .form-group
-        label.form-control-label = t('place_holder.form_identifier')
-        = f.text_field :form_identifier, class: 'form-control', placeholder: "#{t('place_holder.form_identifier')}"
-      .form-group
-        label.form-control-label = t('place_holder.serial_number')
-        = f.text_field :serial_number, class: 'form-control', placeholder: "#{t('place_holder.serial_number')}"
-      .form-group
-        label.form-control-label = t('place_holder.invoice_number')
-        = f.text_field :invoice_number, class: 'form-control', placeholder: "#{t('place_holder.invoice_number')}"
-      .form-group
-        label.form-control-label = t('place_holder.invoice_date')
-        = f.date_field :invoice_date, class: 'form-control', placeholder: "#{t('place_holder.invoice_date')}", min: Date.today
-
-  .row.border-black
     .col-md-6.col-sm-12.customer-invoice
-      = render 'customer', customer: @invoice.customer, f: f
+      .form-group
+        label.form-control-label = t('.customer')
+        = f.collection_select :customer_id, Customer.all, :id, :name, { include_blank: false }, { class: "btn btn-secondary dropdown-toggle customer-id" }
     .col-md-6.col-sm-12
       label.form-control-label = t('.payment_method')
-      = f.select :payment_method,  options_for_select(payment_options),{ include_blank: false }, { class: "btn btn-secondary dropdown-toggle" }
+      = f.select :payment_method,  options_for_select(payment_options, @invoice.payment_method),{ include_blank: false }, { class: "btn btn-secondary dropdown-toggle" }
 
   .row.border-black
     .row.full-width
@@ -67,7 +41,7 @@
           label.form-control-label = t('.vat_tax')
         .col-md-2.col-sm-12
           .form-group
-            = f.select :vat_percent, options_for_select(percent_select),{ include_blank: false }, { class: "btn btn-secondary dropdown-toggle vat_percent" }
+            = f.select :vat_percent, options_for_select((0..20).to_a, @invoice.vat_percent.to_i),{ include_blank: false }, { class: "btn btn-secondary dropdown-toggle vat_percent" }
         .col-md-6.col-sm-12
           .row
             .col-md-6.col-sm-12.text-right.label-invoice
@@ -97,7 +71,6 @@
       = f.submit submit_text, class: 'btn btn-primary btn-lg my-4 btn-full'
 
   = hidden_field_tag 'product-price', Product.select(:id, :unit, :price).to_json
-  = hidden_field_tag 'customer-company', Customer.all.to_json
 
 javascript:
   new InvoiceForm

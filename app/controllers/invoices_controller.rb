@@ -55,8 +55,6 @@ class InvoicesController < ApplicationController
   def approve
     return unless current_user.owner?
     @invoice.approved!
-    @invoice.update_hash_data
-    @invoice.up_block
     flash[:success] = t('.updated_success')
   end
 

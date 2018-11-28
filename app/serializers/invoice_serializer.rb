@@ -6,7 +6,7 @@ class InvoiceSerializer < ActiveModel::Serializer
   end
 
   def company
-    CompanySerializer.new(object.company).as_json
+    CompanySerializer.new(Company.first).as_json
   end
 
 

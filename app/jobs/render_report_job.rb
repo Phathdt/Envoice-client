@@ -2,7 +2,7 @@ class RenderReportJob < ApplicationJob
   queue_as :default
 
   def perform(invoice)
-    html = Customer::InvoicesController.render :preview, layout: false, assigns: { invoice: invoice }
+    html = InvoicesController.render :preview, layout: false, assigns: { invoice: invoice, company: Company.first }
     kit = IMGKit.new(html, quality: 50)
     file = kit.to_file('report.jpg')
     invoice.image.attach(io: File.open("report.jpg"), filename: "report.jpg", content_type: "image/jpg")

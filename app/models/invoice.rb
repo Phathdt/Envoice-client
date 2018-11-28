@@ -7,17 +7,16 @@ class Invoice < ApplicationRecord
   has_one_attached :image
   has_one_attached :pdf
 
-  accepts_nested_attributes_for :items, reject_if: :all_blank, allow_destroy: true
-
-  validates :form_identifier, presence: true
-  validates :serial_number, presence: true
-  validates :invoice_number, presence: true
-  validates :invoice_date, presence: true
   validates :payment_method, presence: true
   validates :vat_percent, presence: true
 
-  # after_update :up_block, if: :approved?
-  # after_update :render_report
+  before_create :add_default
+  before_update :add_invoice_number, if: Proc.new { |invoice| invoice.approved? && !invoice.invoice_number }
+  before_update :update_hash_data, if: Proc.new { |invoice| invoice.approved? && invoice.update_hash_data.blank? }
+  after_commit :render_report, on: [:create, :update]
+  after_update :up_block, if: :approved?
+
+  accepts_nested_attributes_for :items, reject_if: :all_blank, allow_destroy: true
 
   def total
     @total ||= items.map(&:total).inject(:+) || 0
@@ -37,14 +36,21 @@ class Invoice < ApplicationRecord
   end
 
   def up_block
-    return unless approved? && !up_data?
-    update_hash_data
     TransactionGenerator.perform_later(self, self.company.account)
-    InvoiceMailer.send_customer(self, self.customer).deliver_now
-    # self.update(up_data: true)
+    InvoiceMailer.send_customer(self, self.customer).deliver_later
   end
 
   def render_report
     RenderReportJob.perform_now(self)
+  end
+
+  def add_default
+    self.form_identifier = '01GTKT'
+    self.invoice_date = Date.current
+    self.serial_number = Date.current.strftime("%yE")
+  end
+
+  def add_invoice_number
+    self.invoice_number = (Invoice.where.not(invoice_number: nil).order(invoice_number: :DESC).first.invoice_number.to_i + 1 ).to_s.rjust(6, "0")
   end
 end
