@@ -12,10 +12,10 @@
         h5 = "#{t('.invoice_number')} : #{@invoice.invoice_number}"
     .row
       .col-sm-12
-        h6 = "#{t('.company_name')} : #{@invoice.company.name}"
-        h6 = "#{t('.tax_identification_number')} : #{@invoice.company.tax_identification_number}"
-        h6 = "#{t('.address')} : #{@invoice.company.address}"
-        h6 = "#{t('.phone_number')} : #{@invoice.company.phone_number}"
+        h6 = "#{t('.company_name')} : #{Company.first.name}"
+        h6 = "#{t('.tax_identification_number')} : #{Company.first.tax_identification_number}"
+        h6 = "#{t('.address')} : #{Company.first.address}"
+        h6 = "#{t('.phone_number')} : #{Company.first.phone_number}"
 
     .row.customer-section
       .col-sm-12

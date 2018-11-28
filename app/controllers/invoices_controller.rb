@@ -23,6 +23,7 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.new(invoice_params)
 
     if @invoice.save
+      @invoice.render_report
       flash[:success] = t('.created_success')
       redirect_to  invoices_path
     else
@@ -32,6 +33,7 @@ class InvoicesController < ApplicationController
 
   def update
     if @invoice.update(invoice_params)
+      @invoice.render_report
       flash[:success] = t('.updated_success')
       redirect_to invoices_path
     else
@@ -55,6 +57,7 @@ class InvoicesController < ApplicationController
   def approve
     return unless current_user.owner?
     @invoice.approved!
+    @invoice.render_report
     flash[:success] = t('.updated_success')
   end
 

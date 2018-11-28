@@ -13,7 +13,6 @@ class Invoice < ApplicationRecord
   before_create :add_default
   before_update :add_invoice_number, if: Proc.new { |invoice| invoice.approved? && !invoice.invoice_number }
   before_update :update_hash_data, if: Proc.new { |invoice| invoice.approved? && invoice.update_hash_data.blank? }
-  after_commit :render_report, on: [:create, :update]
   after_update :up_block, if: :approved?
 
   accepts_nested_attributes_for :items, reject_if: :all_blank, allow_destroy: true
@@ -32,16 +31,15 @@ class Invoice < ApplicationRecord
 
   def update_hash_data
     value = InvoiceSerializer.new(self).to_json
-    self.update(hash_data: value)
+    self.hash_data = value
   end
 
   def up_block
-    TransactionGenerator.perform_later(self, self.company.account)
-    InvoiceMailer.send_customer(self, self.customer).deliver_later
+    UpBlockJob.set(wait: 5.seconds).perform_later(self)
   end
 
   def render_report
-    RenderReportJob.perform_now(self)
+    RenderReportJob.perform_later(self)
   end
 
   def add_default
@@ -51,6 +49,6 @@ class Invoice < ApplicationRecord
   end
 
   def add_invoice_number
-    self.invoice_number = (Invoice.where.not(invoice_number: nil).order(invoice_number: :DESC).first.invoice_number.to_i + 1 ).to_s.rjust(6, "0")
+    self.invoice_number = (Invoice.where.not(invoice_number: nil).order(invoice_number: :DESC).first&.invoice_number.to_i + 1 ).to_s.rjust(6, "0")
   end
 end

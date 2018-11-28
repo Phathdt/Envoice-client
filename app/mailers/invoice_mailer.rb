@@ -4,7 +4,7 @@ class InvoiceMailer < ApplicationMailer
     @customer = customer
 
     subject = I18n.with_locale(locale) do
-      I18n.t('mailer.invoice.send_customer.subject', company_name: invoice.company.name)
+      I18n.t('mailer.invoice.send_customer.subject', company_name: Company.first.name)
     end
 
     attachments["invoice.pdf"] = @invoice.pdf.blob.download
