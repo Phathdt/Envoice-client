@@ -1,11 +1,11 @@
-$company =
-  begin
-    Company.first
-  rescue ActiveRecord::NoDatabaseError => exception
-    nil
-  rescue ActiveRecord::StatementInvalid => exception
-    nil
-  end
+# $company =
+#   begin
+#     Company.first
+#   rescue ActiveRecord::NoDatabaseError => exception
+#     nil
+#   rescue ActiveRecord::StatementInvalid => exception
+#     nil
+#   end
 
 ALERT_TYPE = {
   'alert' => 'warning',
