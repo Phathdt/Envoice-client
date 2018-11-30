@@ -1,6 +1,10 @@
 {
   "name": "Envoice",
   "private": true,
+  "engines": {
+    "node": "10.8.0",
+    "yarn": "1.9.4"
+  },
   "dependencies": {
     "@creative-tim-official/argon-dashboard-free": "https://github.com/Phathdt/argon-dashboard",
     "@fancyapps/fancybox": "^3.5.2",
@@ -21,5 +25,9 @@
     "popper.js": "^1.14.4",
     "print-this": "^1.14.0",
     "prismjs": "^1.15.0"
+  },
+  "scripts": {
+    "build": "yarn --cwd install",
+    "heroku-postbuild": "yarn build"
   }
 }
