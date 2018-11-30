@@ -6,5 +6,6 @@ class UpBlockJob < ApplicationJob
 
     TransactionGeneratorJob.perform_now(invoice)
     InvoiceMailer.send_customer(invoice, invoice.customer).deliver_now
+    SyncDataJob.perform_now(invoice)
   end
 end
