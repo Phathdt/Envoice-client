@@ -47,6 +47,7 @@ gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 gem 'wkhtmltoimage-binary'
 gem 'imgkit'
+gem 'rest-client'
 
 group :development, :test do
   gem 'byebug'
