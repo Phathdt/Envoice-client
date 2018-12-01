@@ -1,1 +1,1 @@
-= simple_format t('mailer.invoice.send_customer.content', company_name: Company.first.name, check_url: root_url, tx_id: @invoice.transaction_id, info_url: root_url)
+= simple_format t('mailer.invoice.send_customer.content', company_name: Company.first.name, check_url: ENV['CHECK_INVOICE_URL'], tx_id: @invoice.transaction_id, info_url: root_url)
