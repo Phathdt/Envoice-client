@@ -31,5 +31,3 @@
 /config/application.yml
 **/dump.rdb
 **/erd.pdf
-/report.jpg
-/report.pdf
