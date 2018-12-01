@@ -1,9 +1,8 @@
 ---
-:concurrency: 5
-staging:
-  :concurrency: 10
+development:
+  :concurrency: 1
 production:
-  :concurrency: 20
+  :concurrency: 1
 :queues:
   - urgent
   - critical
