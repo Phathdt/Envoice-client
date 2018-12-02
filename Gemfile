@@ -46,6 +46,7 @@ gem 'humanize',  :git => 'https://github.com/Phathdt/humanize.git'
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 gem 'rest-client'
+gem 'deep_cloneable', '~> 2.3.2'
 
 group :development, :test do
   gem 'byebug'
