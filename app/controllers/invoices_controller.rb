@@ -56,6 +56,7 @@ class InvoicesController < ApplicationController
 
   def approve
     return unless current_user.owner?
+    @invoice.cancle_prev_invoice
     @invoice.approved!
     @invoice.render_report
     @invoice.delete_all_draft

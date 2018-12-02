@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_02_043259) do
+ActiveRecord::Schema.define(version: 2018_12_02_045451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2018_12_02_043259) do
     t.string "hash_data"
     t.integer "state", default: 0
     t.integer "prev_invoice"
+    t.bigint "id_server"
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["prev_invoice"], name: "index_invoices_on_prev_invoice"
   end

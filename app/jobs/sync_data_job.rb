@@ -24,6 +24,10 @@ class SyncDataJob < ApplicationJob
       accessToken: ENV['ACCESS_TOKEN']
     }
 
-    RestClient.post("#{ENV['ADMIN_HOST']}/api/v1/invoices", payload, header)
+    response = RestClient.post("#{ENV['ADMIN_HOST']}/api/v1/invoices", payload, header)
+
+    body = JSON.parse(response.body)
+
+    invoice.update_column(:id_server, body['id'])
   end
 end

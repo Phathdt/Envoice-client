@@ -13,6 +13,7 @@ class Invoice < ApplicationRecord
   before_update :add_invoice_number, if: Proc.new { |invoice| invoice.approved? && !invoice.invoice_number }
   before_update :update_hash_data, if: Proc.new { |invoice| invoice.approved? && invoice.update_hash_data.blank? }
   after_update :up_block, if: :approved?
+  after_update :up_block_cancle, if: :suspended?
 
   accepts_nested_attributes_for :items, reject_if: :all_blank, allow_destroy: true
 
@@ -37,6 +38,10 @@ class Invoice < ApplicationRecord
     UpBlockJob.set(wait: 5.seconds).perform_later(self)
   end
 
+  def up_block_cancle
+    UpBlockCancleJob.set(wait: 5.seconds).perfrom_later(self)
+  end
+
   def render_report
     RenderReportJob.perform_later(self)
   end
@@ -49,6 +54,14 @@ class Invoice < ApplicationRecord
 
   def add_invoice_number
     self.invoice_number = (Invoice.where.not(invoice_number: nil).order(invoice_number: :DESC).first&.invoice_number.to_i + 1 ).to_s.rjust(6, "0")
+  end
+
+  def cancle_prev_invoice
+    return unless self.prev_invoice
+
+    old_invoice = Invoice.find(self.prev_invoice)
+
+    old_invoice.suspended!
   end
 
   def delete_all_draft
