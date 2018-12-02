@@ -1,5 +1,7 @@
 .invoice-box.card
-  = image_tag @invoice.image, class: 'image-full-width', id: 'print-this'
+  object data="#{url_for @invoice.pdf}" type="application/pdf" width="100%" height="600px"
+    embed src="#{url_for @invoice.pdf}" type="application/pdf"
+
 .invoice-box.card
   .row
     - if current_user && !@invoice.approved?
