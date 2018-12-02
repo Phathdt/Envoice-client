@@ -4,7 +4,6 @@ class Invoice < ApplicationRecord
 
   enum state: { pending: 0, suspended: 1, approved: 2 }
 
-  has_one_attached :image
   has_one_attached :pdf
 
   validates :payment_method, presence: true

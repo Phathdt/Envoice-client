@@ -45,8 +45,6 @@ gem 'active_model_serializers', '~> 0.10.7'
 gem 'humanize',  :git => 'https://github.com/Phathdt/humanize.git'
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
-gem 'wkhtmltoimage-binary'
-gem 'imgkit'
 gem 'rest-client'
 
 group :development, :test do

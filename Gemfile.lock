@@ -140,7 +140,6 @@ GEM
     image_processing (1.7.1)
       mini_magick (~> 4.0)
       ruby-vips (>= 2.0.13, < 3)
-    imgkit (1.6.1)
     jmespath (1.4.0)
     js-routes (1.4.4)
       railties (>= 3.2)
@@ -321,7 +320,6 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
-    wkhtmltoimage-binary (0.12.5)
     wkhtmltopdf-binary (0.12.4)
 
 PLATFORMS
@@ -347,7 +345,6 @@ DEPENDENCIES
   font-awesome-sass (~> 5.2.0)
   humanize!
   image_processing (~> 1.2)
-  imgkit
   js-routes
   kaminari
   listen (>= 3.0.5, < 3.2)
@@ -371,7 +368,6 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-  wkhtmltoimage-binary
   wkhtmltopdf-binary
 
 RUBY VERSION
