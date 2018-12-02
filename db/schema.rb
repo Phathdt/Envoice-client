@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_28_084831) do
+ActiveRecord::Schema.define(version: 2018_12_02_041937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,8 +83,10 @@ ActiveRecord::Schema.define(version: 2018_10_28_084831) do
     t.datetime "updated_at", null: false
     t.string "hash_data"
     t.integer "state", default: 0
+    t.integer "prev_invoice"
     t.index ["company_id"], name: "index_invoices_on_company_id"
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
+    t.index ["prev_invoice"], name: "index_invoices_on_prev_invoice"
   end
 
   create_table "items", force: :cascade do |t|
