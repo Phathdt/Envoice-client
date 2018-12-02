@@ -9,13 +9,17 @@ class SyncDataJob < ApplicationJob
         pdf_path = RestClient::Request.execute(method: :get, url: invoice.pdf.service_url, raw_response: true).file.path
         {
           invoice: invoice.slice(:form_identifier, :serial_number, :invoice_number,:invoice_date, :payment_method, :vat_percent, :transaction_id, :hash_data).merge(
-            pdf: File.open(pdf_path)
+            pdf: File.open(pdf_path),
+            customer_name: invoice.customer.name,
+            paid_amount: invoice.paid_amount,
           )
         }
       else
         {
           invoice: invoice.slice(:form_identifier, :serial_number, :invoice_number,:invoice_date, :payment_method, :vat_percent, :transaction_id, :hash_data).merge(
-            pdf: File.open(ActiveStorage::Blob.service.send(:path_for, invoice.pdf.key))
+            pdf: File.open(ActiveStorage::Blob.service.send(:path_for, invoice.pdf.key)),
+            customer_name: invoice.customer.name,
+            paid_amount: invoice.paid_amount,
           )
         }
       end
