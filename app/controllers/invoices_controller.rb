@@ -76,6 +76,18 @@ class InvoicesController < ApplicationController
     @invoice.prev_invoice = old_invoice.id
   end
 
+  def multi_approve
+    return unless current_user.owner?
+    invoices = Invoice.pending.where(id: params[:invoice_ids])
+
+    invoices.each do |invoice|
+      invoice.cancle_prev_invoice
+      invoice.approved!
+      invoice.render_report
+      invoice.delete_all_draft
+    end
+  end
+
   private
 
   def set_invoice

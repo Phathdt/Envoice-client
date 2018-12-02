@@ -116,6 +116,7 @@ vi:
       to_date: Tạo đến ngày
       title: Danh sách hóa đơn
       add: Thêm hóa đơn mới
+      multi_approve: Ký hóa đơn
     item_invoices:
       remove: Xóa sản phẩm
     show:

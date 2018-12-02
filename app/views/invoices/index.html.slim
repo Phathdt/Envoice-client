@@ -39,53 +39,62 @@
 
 .row.mt-5
   .col
-    .card.shadow
-      .card-body.border-0
-        .row
-          .col-sm-10
-            h3.mb-0 = t('.title')
-          .col-sm-2
-            = link_to new_invoice_path, class: "btn btn-icon btn-3 btn-primary" do
-              span.btn-inner--icon
-                i.fas.fa-plus
-              span.btn-inner--text = t('.add')
+    = form_for Invoice.new, url: multi_approve_invoices_path, remote: true do |f|
+      .card.shadow
+        .card-body.border-0
+          .row
+            .col-sm-8
+              h3.mb-0 = t('.title')
+            .col-sm-2
+              = f.submit t('.multi_approve'), class: "btn btn-icon btn-3 btn-primary"
+            .col-sm-2
+              = link_to new_invoice_path, class: "btn btn-icon btn-3 btn-primary" do
+                span.btn-inner--icon
+                  i.fas.fa-plus
+                span.btn-inner--text = t('.add')
 
-      .table-responsive
-        table.table.align-items-center.table-flush
-          thead.thead-light
-            tr
-              th scope="col" = t('.form_identifier')
-              th scope="col" = t('.serial_number')
-              th scope="col" = t('.invoice_number')
-              th scope="col" = t('.invoice_date')
-              th scope="col" = t('.customer_name')
-              th scope="col" = t('.state')
-              th scope="col" = t('.show')
-              th scope="col" = t('.edit')
-              th scope="col" = t('.delete')
-          tbody
-            - @invoices.each do |invoice|
+        .table-responsive
+          table.table.align-items-center.table-flush
+            thead.thead-light
               tr
-                td
-                  = invoice.form_identifier
-                td
-                  = invoice.serial_number
-                td
-                  = invoice.invoice_number
-                td
-                  = invoice.invoice_date
-                td
-                  = invoice.customer&.name
-                td
-                  = enum_l(invoice, :state)
-                td
-                  = link_to t('.show'), invoice, remote: true
-                td
-                  = link_to t('.edit'), [:edit, invoice]
-                td
-                  = link_to t('.delete'), invoice, method: :delete, data: { confirm: 'Are you sure?' }
+                - if current_user.owner?
+                  th scope="col"
+                th scope="col" = t('.form_identifier')
+                th scope="col" = t('.serial_number')
+                th scope="col" = t('.invoice_number')
+                th scope="col" = t('.invoice_date')
+                th scope="col" = t('.customer_name')
+                th scope="col" = t('.state')
+                th scope="col" = t('.show')
+                th scope="col" = t('.edit')
+                th scope="col" = t('.delete')
+            tbody
+              - @invoices.each do |invoice|
+                tr
+                  - if current_user.owner?
+                    td
+                      - if invoice.pending?
+                        = check_box_tag "invoice_ids[]", invoice.id
+                  td
+                    = invoice.form_identifier
+                  td
+                    = invoice.serial_number
+                  td
+                    = invoice.invoice_number
+                  td
+                    = invoice.invoice_date
+                  td
+                    = invoice.customer&.name
+                  td
+                    = enum_l(invoice, :state)
+                  td
+                    = link_to t('.show'), invoice, remote: true
+                  td
+                    = link_to t('.edit'), [:edit, invoice]
+                  td
+                    = link_to t('.delete'), invoice, method: :delete, data: { confirm: 'Are you sure?' }
 
-      = paginate @invoices
+        = paginate @invoices
 
 
 #invoice-modal.modal.fade tabindex="-1"
