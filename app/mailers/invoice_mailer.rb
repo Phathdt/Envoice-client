@@ -8,7 +8,6 @@ class InvoiceMailer < ApplicationMailer
     end
 
     attachments["invoice.pdf"] = @invoice.pdf.blob.download
-    attachments["invoice.jpg"] = @invoice.image.blob.download
 
     mail(to: customer.email, subject: subject)
   end
