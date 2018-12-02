@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_02_041937) do
+ActiveRecord::Schema.define(version: 2018_12_02_043259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,14 +77,12 @@ ActiveRecord::Schema.define(version: 2018_12_02_041937) do
     t.decimal "vat_percent", default: "0.0"
     t.string "customer_tax_identification_number"
     t.string "transaction_id"
-    t.bigint "company_id"
     t.bigint "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "hash_data"
     t.integer "state", default: 0
     t.integer "prev_invoice"
-    t.index ["company_id"], name: "index_invoices_on_company_id"
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["prev_invoice"], name: "index_invoices_on_prev_invoice"
   end
@@ -139,7 +137,6 @@ ActiveRecord::Schema.define(version: 2018_12_02_041937) do
   end
 
   add_foreign_key "accounts", "companies"
-  add_foreign_key "invoices", "companies"
   add_foreign_key "invoices", "customers"
   add_foreign_key "items", "invoices"
   add_foreign_key "items", "products"
