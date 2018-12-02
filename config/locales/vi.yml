@@ -118,3 +118,14 @@ vi:
           Tìm hiểu thêm %{info_url}
 
           Quý khách nên lưu trữ những thông tin này để tra cứu khi cần.
+      cancle_invoice:
+        subject: Thông báo hủy hóa đơn điện tử từ công ty %{company_name}
+        content: |
+          Chào quý khách,
+          Envoice gửi đến quý khách thông tin hóa đơn điện tử cho đơn hàng từ công ty %{company_name}.
+          Hóa đơn %{invoice_number} đã bị hủy
+          Chúng tôi sẽ gửi thông tin hóa đơn thay thế ngay lập tức
+
+          Tìm hiểu thêm %{info_url}
+
+          Quý khách nên lưu trữ những thông tin này để tra cứu khi cần.

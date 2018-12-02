@@ -4,14 +4,7 @@ class UpBlockCancleJob < ApplicationJob
   def perform(invoice)
     invoice.reload
 
-    header = {
-      accessToken: ENV['ACCESS_TOKEN']
-    }
-
-    payload = {
-      id: invoice.id_server
-    }
-
-    RestClient.patch("#{ENV['ADMIN_HOST']}/api/v1/invoices/cancle", payload ,header)
+    InvoiceMailer.cancle_invoice(invoice, invoice.customer).deliver_now
+    SyncDataCancleJob.perform_now(invoice)
   end
 end

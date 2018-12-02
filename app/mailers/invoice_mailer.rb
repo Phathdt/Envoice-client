@@ -11,4 +11,15 @@ class InvoiceMailer < ApplicationMailer
 
     mail(to: customer.email, subject: subject)
   end
+
+  def cancle_invoice(invoice, customer)
+    @invoice = invoice
+    @customer = customer
+
+    subject = I18n.with_locale(locale) do
+      I18n.t('mailer.invoice.cancle_invoice.subject', company_name: Company.first.name)
+    end
+
+    mail(to: customer.email, subject: subject)
+  end
 end
