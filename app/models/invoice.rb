@@ -39,7 +39,7 @@ class Invoice < ApplicationRecord
   end
 
   def up_block_cancle
-    UpBlockCancleJob.set(wait: 5.seconds).perfrom_later(self)
+    UpBlockCancleJob.set(wait: 5.seconds).perform_later(self)
   end
 
   def render_report
