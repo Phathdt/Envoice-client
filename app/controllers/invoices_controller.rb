@@ -58,7 +58,21 @@ class InvoicesController < ApplicationController
     return unless current_user.owner?
     @invoice.approved!
     @invoice.render_report
+    @invoice.delete_all_draft
     flash[:success] = t('.updated_success')
+  end
+
+  def cancle
+    old_invoice = Invoice.find(params[:id])
+    @invoice = old_invoice.deep_clone include: :items
+    @invoice.hash_data =  nil
+    @invoice.transaction_id =  nil
+    @invoice.hash_data =  nil
+    @invoice.form_identifier =  nil
+    @invoice.invoice_date =  nil
+    @invoice.serial_number =  nil
+    @invoice.invoice_number =  nil
+    @invoice.prev_invoice = old_invoice.id
   end
 
   private
@@ -71,6 +85,7 @@ class InvoicesController < ApplicationController
     params.require(:invoice).permit(
       :form_identifier, :serial_number, :invoice_number,
       :invoice_date, :payment_method, :total, :vat_percent, :customer_id,
-      :vat_amount, :customer_paid_amount, items_attributes: [:id, :product_id, :quantity, :price, :_destroy])
+      :vat_amount, :customer_paid_amount, :prev_invoice,
+      items_attributes: [:id, :product_id, :quantity, :price, :_destroy])
   end
 end

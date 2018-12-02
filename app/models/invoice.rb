@@ -50,4 +50,12 @@ class Invoice < ApplicationRecord
   def add_invoice_number
     self.invoice_number = (Invoice.where.not(invoice_number: nil).order(invoice_number: :DESC).first&.invoice_number.to_i + 1 ).to_s.rjust(6, "0")
   end
+
+  def delete_all_draft
+    return unless self.prev_invoice
+
+    draft_invoices = Invoice.where(prev_invoice: prev_invoice).where.not(id: self.id)
+
+    draft_invoices.each(&:destroy)
+  end
 end

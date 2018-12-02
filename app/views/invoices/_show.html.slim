@@ -4,7 +4,7 @@
 
 .invoice-box.card
   .row
-    - if current_user && !@invoice.approved?
+    - unless @invoice.approved?
       .col-sm-2
         = button_to edit_invoice_path(@invoice), method: :get, class: 'btn btn-icon btn-3 btn-primary', form: {target: '_blank'} do
           span.btn-inner--icon
@@ -27,8 +27,8 @@
             i.fas.fa-check
           span.btn-inner--text = t('.check')
 
-
-javascript:
-  $('.print').on('click', function() {
-    $('#print-this').printThis()
-  });
+    - if @invoice.approved?
+      = button_to cancle_invoice_path(@invoice), method: :get, class: 'btn btn-icon btn-3 btn-primary' do
+        span.btn-inner--icon
+          i.fas.fa-ban
+        span.btn-inner--text = t('.cancle')

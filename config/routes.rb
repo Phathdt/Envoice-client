@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :invoices do
       get :download, on: :member
       post :approve, on: :member
+      get :cancle, on: :member
     end
     resources :customers, except: %i(show)
   end

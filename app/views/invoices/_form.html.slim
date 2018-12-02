@@ -4,6 +4,8 @@
       ul
         = render 'shared/errors', messages: @invoice.errors.full_messages
 
+  = f.hidden_field :prev_invoice
+
   .row.border-black
     .col-md-6.col-sm-12.customer-invoice
       .form-group
