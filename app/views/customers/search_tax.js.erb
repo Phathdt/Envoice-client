@@ -1,0 +1,17 @@
+$('.customer_form').html("<%= j render partial: 'customers/form' %>");
+
+$('.customer-button').click(function(e) {
+  var tax_number;
+  tax_number = $('#customer_tax_number').val();
+  if (tax_number.length === 0) {
+    return;
+  }
+  return $.ajax({
+    url: Routes.search_tax_customers_path(),
+    type: 'POST',
+    data: {
+      tax_number: tax_number
+    },
+    dataType: 'script'
+  });
+});

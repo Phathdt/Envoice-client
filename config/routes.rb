@@ -23,6 +23,8 @@ Rails.application.routes.draw do
       post :multi_approve, on: :collection
       get :cancle, on: :member
     end
-    resources :customers, except: %i(show)
+    resources :customers, except: %i(show) do
+      post :search_tax, on: :collection
+    end
   end
 end

@@ -40,6 +40,17 @@ class CustomersController < ApplicationController
     redirect_to customers_path
   end
 
+  def search_tax
+    response = RestClient.get("https://thongtindoanhnghiep.co/api/company/#{params[:tax_number]}")
+    response_json = JSON.parse(response.body)
+
+    @customer = Customer.new
+    @customer.address = response_json['DiaChiCongTy']
+    @customer.company_name = response_json['Title']
+    @customer.tax_number = response_json['MaSoThue']
+    @customer.phone_number = response_json['NoiDangKyQuanLy_DienThoai']
+  end
+
   private
 
   def set_customer

@@ -6,7 +6,7 @@ nav#sidenav-main.navbar.navbar-vertical.fixed-left.navbar-expand-md.navbar-light
       span.navbar-toggler-icon
     /! Brand
     = link_to root_path, class: 'navbar-brand pt-0'
-      = image_tag  "blue.png", class: 'navbar-brand-img'
+      = image_tag  "logo.png", class: 'navbar-brand-img'
     /! User
     ul.nav.align-items-center.d-md-none
       = render "shared/user_menu", render_name: false
@@ -18,7 +18,7 @@ nav#sidenav-main.navbar.navbar-vertical.fixed-left.navbar-expand-md.navbar-light
         .row
           .col-6.collapse-brand
             = link_to root_path do
-              = image_tag  "blue.png"
+              = image_tag  "logo.png"
           .col-6.collapse-close
             button.navbar-toggler aria-controls="sidenav-main" aria-expanded="false" aria-label=("Toggle sidenav") data-target="#sidenav-collapse-main" data-toggle="collapse" type="button"
               span

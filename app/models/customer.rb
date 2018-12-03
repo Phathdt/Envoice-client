@@ -5,4 +5,5 @@ class Customer < ApplicationRecord
   validates :phone_number, length: { minimum: 10, maximum: 11 }, presence: true
   validates :address, presence: true
   validates :name, presence: true
+  validates :tax_number, presence: true, uniqueness: true
 end
