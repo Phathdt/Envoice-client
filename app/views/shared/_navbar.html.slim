@@ -25,15 +25,14 @@ nav#sidenav-main.navbar.navbar-vertical.fixed-left.navbar-expand-md.navbar-light
               span
 
       ul.navbar-nav.sidebar
-        - if current_user.owner? || current_user.staff?
-          = render 'layouts/sidebar_header', model: 'dashboard', icon_name: 'ni ni-tv-2', collection: ConstantHelper::DASHBOARD_CUSTOMER_SIDEBAR
         - if current_user.owner?
           = render 'layouts/sidebar_header', model: 'company', icon_name: 'fas fa-building', collection: ConstantHelper::COMPANY_SIDEBAR
 
-        = render 'layouts/sidebar_header', model: 'product', icon_name: 'fas fa-box', collection: ConstantHelper::PRODUCT_SIDEBAR
         - if current_user.staff?
           = render 'layouts/sidebar_header', model: 'invoice', icon_name: 'fas fa-file-invoice-dollar', collection: ConstantHelper::INVOICE_STAFF_SIDEBAR
 
         - if current_user.owner?
           = render 'layouts/sidebar_header', model: 'invoice', icon_name: 'fas fa-file-invoice-dollar', collection: ConstantHelper::INVOICE_OWNER_SIDEBAR
+
+        = render 'layouts/sidebar_header', model: 'product', icon_name: 'fas fa-box', collection: ConstantHelper::PRODUCT_SIDEBAR
         = render 'layouts/sidebar_header', model: 'customer', icon_name: 'fas fa-users', collection: ConstantHelper::CUSTOMER_SIDEBAR

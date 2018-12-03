@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-  root 'dashboards#index'
+  root 'invoices#index'
 
   scope '(:locale)', locale: /en|vi/ do
     devise_for :users, controllers: { passwords: 'user/passwords' }
 
-    get '/', to: 'dashboards#index'
+    get '/', to: 'invoices#index'
 
     namespace :owner do
       resources :users, only: %i(index new create) do
@@ -15,7 +15,6 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :dashboards, only: %i(index)
     resources :companies, only: %i(update edit)
     resources :products, except: %i(show)
     resources :invoices do

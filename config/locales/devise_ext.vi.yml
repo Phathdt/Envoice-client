@@ -14,8 +14,10 @@ vi:
         not_received_email: Không nhận được email
     shared:
       header:
-        welcome: Welcome!
-        information: Use these awesome forms to login or create new account in your project for free.
+        welcome: Xin chào
+        information: Vietnam Blockchain Invoice – Giải pháp hoá đơn tin cậy, minh bạch..
+      navbar:
+        login: Đăng nhập
   user:
     passwords:
       create:

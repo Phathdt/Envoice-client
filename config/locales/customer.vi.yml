@@ -70,7 +70,7 @@ vi:
       tax_identification_number: Mã số thuế
       address: Đại chỉ
       add: Thêm sản phẩm
-      vat_tax: Thuế GTGT
+      vat_tax: Thuế GTGT (%)
       price_total: Tổng tiền sản phẩm
       vat_price: Tiền thuế
       paid_total: Tổng tiền phải trả
@@ -106,7 +106,7 @@ vi:
       serial_number: Kí hiệu
       invoice_number: Số
       invoice_date: Ngày tạo lập
-      customer_tax_identification_number: Má số thuế
+      customer_tax_identification_number: Mã số thuế khách hàng
       customer_name: Tên khách hàng
       state: Trạng thái
       edit: Sửa
@@ -117,14 +117,16 @@ vi:
       title: Danh sách hóa đơn
       add: Thêm hóa đơn mới
       multi_approve: Ký hóa đơn
+      user_create: Người tạo
     item_invoices:
       remove: Xóa sản phẩm
     show:
+      cancle: Hủy
       form_identifier: Mẫu số
       serial_number: Kí hiệu
       invoice_number: Số
       invoice_date: Ngày tạo lập
-      tax_identification_number: Má số thuế
+      tax_identification_number: Mã số thuế khách hàng
       company_name: Tên đơn vị bán hàng
       phone_number: Số điện thoại
       address: Địa chỉ
@@ -132,7 +134,7 @@ vi:
       date: Ngày %{day} tháng %{month} năm %{year}
       customer_name: Tên người mua hàng
       customer_company_name: Tên đơn vị
-      customer_tax_identification_number: Má số thuế
+      customer_tax_identification_number: Mã số thuế khách hàng
       payment_method: Hình thức thanh toán
       index: Số thứ tự
       product_name: Sản phẩm dịch vụ
@@ -151,3 +153,5 @@ vi:
       edit: Sửa
     approve:
       updated_success: Ký hóa đơn thành công
+    cancle:
+      warning_cancle: Bạn cần tạo hóa đơn mới để hủy hóa đơn đã chọn

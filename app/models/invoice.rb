@@ -1,5 +1,7 @@
 class Invoice < ApplicationRecord
   belongs_to :customer
+  belongs_to :user
+
   has_many :items, dependent: :destroy
 
   enum state: { pending: 0, suspended: 1, approved: 2 }

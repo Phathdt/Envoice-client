@@ -21,6 +21,7 @@ class InvoicesController < ApplicationController
 
   def create
     @invoice = Invoice.new(invoice_params)
+    @invoice.user = current_user
 
     if @invoice.save
       @invoice.render_report
@@ -64,6 +65,7 @@ class InvoicesController < ApplicationController
   end
 
   def cancle
+    flash[:alert] = t('.warning_cancle')
     old_invoice = Invoice.find(params[:id])
     @invoice = old_invoice.deep_clone include: :items
     @invoice.hash_data =  nil

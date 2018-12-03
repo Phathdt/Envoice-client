@@ -71,11 +71,12 @@ vi:
       access_requests: Danh sách kiểm duyệt
     companies:
       title: "Công ty"
-      company_info: "Thông tin Công ty"
-      manage_user: "Quảng lý người dùng"
+      company_info: "Thông tin công ty"
+      manage_user: "Quảng lý nhân viên"
     products:
       title: "Quản lý sản phẩm"
       list_product: "Danh mục sản phẩm"
+      new_product: Tạo sản phẩm mới
     invoices:
       title: Quản lý hóa đơn
       list_invoice: Danh sách hóa đơn

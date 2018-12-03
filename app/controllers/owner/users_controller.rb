@@ -18,6 +18,8 @@ class Owner::UsersController < Owner::ApplicationController
       flash[:success] = t('.success')
       redirect_to owner_users_path
     else
+      flash[:alert] = user.errors.full_messages.first
+      @staff = User.new
       render 'new'
     end
   end
