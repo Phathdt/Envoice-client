@@ -47,6 +47,7 @@ vi:
     edit:
       title: Cập nhật thông tin khách hàng
     form:
+      search: Tìm kiếm theo Mã số thuế
       add: Thêm khách hàng mới
       update: Cập nhật thông tin khách hàng
     index:
