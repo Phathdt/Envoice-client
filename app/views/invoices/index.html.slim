@@ -42,12 +42,12 @@
       .card.shadow
         .card-body.border-0
           .row
-            .col-sm-8
+            .col-sm-5
               h3.mb-0 = t('.title')
-            .col-sm-2
-              = f.submit t('.multi_approve'), class: "btn btn-icon btn-3 btn-primary"
-            .col-sm-2
-              = link_to new_invoice_path, class: "btn btn-icon btn-3 btn-primary" do
+            .col-sm-3
+              = f.submit t('.multi_approve'), class: "btn btn-icon btn-3 btn-primary float-right"
+            .col-sm-4
+              = link_to new_invoice_path, class: "btn btn-icon btn-3 btn-primary float-right" do
                 span.btn-inner--icon
                   i.fas.fa-plus
                 span.btn-inner--text = t('.add')
