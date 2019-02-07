@@ -10,6 +10,7 @@ class Invoice < ApplicationRecord
 
   validates :payment_method, presence: true
   validates :vat_percent, presence: true
+  validates :items, presence: true
 
   before_create :add_default
   before_update :add_invoice_number, if: Proc.new { |invoice| invoice.approved? && !invoice.invoice_number }

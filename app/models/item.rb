@@ -4,6 +4,8 @@ class Item < ApplicationRecord
 
   before_create :update_price
 
+  validates :quantity, presence: true, numericality: { greater_than: 0 }
+
   def total
     @total ||= quantity * price
   end
