@@ -7,6 +7,7 @@ class @InvoiceForm
     @selectProduct()
     @selectQuanity()
     @selectVatPercent()
+    @validateItem()
 
   selectProduct: ->
     self = @
@@ -80,3 +81,34 @@ class @InvoiceForm
       $(@).parent().parent().parent().find('.total').val(product.price * quantity)
 
       self.triggerCalcu()
+
+  validateItem: ->
+    self = @
+
+    shouldDisableSubmit = false
+
+    if $('#table-product input.quantity').length == 0
+      self.disableSubmit(true)
+    else
+      $('#table-product input.quantity').each ->
+        quantity = parseInt($(@).val()) || 0
+        if quantity == 0
+          shouldDisableSubmit = true
+
+      self.disableSubmit(shouldDisableSubmit)
+
+    $('#table-product').on 'change', 'input.quantity', (e) ->
+      shouldDisableSubmit = false
+
+      $('#table-product input.quantity').each ->
+        quantity = parseInt($(@).val()) || 0
+        if quantity == 0
+          shouldDisableSubmit = true
+
+      if shouldDisableSubmit
+        self.disableSubmit(true)
+      else
+        self.disableSubmit(false)
+
+  disableSubmit: (disable) ->
+    $('input[type="submit"]').prop('disabled', disable);
