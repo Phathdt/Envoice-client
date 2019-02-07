@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.5.3'
 
 ## Base libs
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 5.2.2'
 
 ## Fronend
 gem 'bootstrap-toggle-rails'
@@ -47,6 +47,7 @@ gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 gem 'rest-client'
 gem 'deep_cloneable', '~> 2.3.2'
+gem 'rb-readline'
 
 group :development, :test do
   gem 'byebug'
